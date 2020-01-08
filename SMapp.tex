@@ -5,6 +5,7 @@
 \usepackage{graphicx}
 \graphicspath{ {Figures/} }
 \usepackage{enumitem} % to have (i) bulletts
+\usepackage[margins]{trackchanges}
 %
 % ==== REVIEW ONLY ====
 % http://texdoc.net/texmf-dist/doc/latex/endfloat/endfloat.pdf
@@ -72,7 +73,7 @@ T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
 \author[2,3]{Angelo Basile}
 \author[4]{Simone Giannecchini}
 \author[5,6]{Francesco Domenico Moccia}
-\author[1]{Antonio Florindo Mileti}
+\author[1]{Florindo Antonio Mileti}
 \author[7]{Michele Munaf\'o}
 \author[8]{Francesco Pinto}
 \author[1,2]{Fabio Terribile}
@@ -170,7 +171,7 @@ A set of indicators can be calculated in real-time using either Italian administ
 Moreover, Soil Monitor uses high resolution layers produced every year by ISPRA (Italian Institute for Environmental Protection and Research) since 2015 for drawing up the yearly soil sealing report in Italy. 
 Thus, owing to the high-performance computing embedded in its cyber infrastructure, Soil Monitor enables real-time geospatial processing while preserving a high spatial detail of the analysis over large areas (till LAU2); this combination of features has an intrinsic vast potential for being used in operational spatial planning. 
 
-\section{Soil Monitor application (SMapp)}
+\section{ \change[GL]{Soil Monitor application (SMapp)} { Materials and Methods } }
 \subsection{Design}
 The Soil Monitor spatial decision support system and visualization tools are required to embody some crucial design items. 
 Although the first version of the implementation was carried out without great involvement of stakeholders, because of money, time, and manpower constraints, at least two middle phases of consultation managed to apply modifications to the SMapp design and functionality. 
@@ -206,17 +207,6 @@ SMapp is a three-tier logical architecture (Figure\ref{fig:GCI}) with separated 
 \end{figure}
 
 In Figure \ref{fig:GCI}, a synthesis is sketched of the operating mode of the platform showing the flow of data that feed different server functions (e.g. models), which, in turn, produce a set of services that can finally be accessed by the dashboard.
-
-\subsection{Workflow of the integrated platform}
-The integration of CUDA kernels, backend (i.e. Java and JCuda), and web interface requires a systematic workflow approach. 
-A typical workflow includes three major steps: job submission, job status query, and results management, where the realization of each step requires integration across the three tiers of the cyberinfrastructure. 
-
-Accordingly, Figure \ref{fig:SMapp} shows an overview of the available toolboxes for analysis, i.e. the toolbox for land use/land cover (LULC) change (Figure \ref{fig:SMapp}, a) and the toolbox for soil sealing indicators (Figure \ref{fig:SMapp}, b).
-The user can build a tailored query owing to the two job submission steps, one for each toolbox. 
-For any soil sealing indicator, the user must select --- according to the following hierarchical order --- the dataset they intend to use (i.e. CORINE land cover or high-resolution imperviousness layer, Figure \ref{fig:SMapp}, b1); the time of the analysis (one year or two years, Figure \ref{fig:SMapp}, b2); the selection of a soil sealing indicator (Figure \ref{fig:SMapp}, b3); the composition of LULC classes optionally (Figure \ref{fig:SMapp}, b4); and finally, the region of interest (Figure \ref{fig:SMapp}, b5). Therefore, in order to ease the definition of a possible multi-polygon RoI, there is an ad hoc accordion pane for the rapid identification and selection of any Italian administrative unit.
-The RoI definition accordion pane is particularly useful because it allows the user to select one or more administrative units at any level of the topological hierarchy (municipality, province, region) and to freely draw a new region of interest directly over the displayed map within SMapp.
-For any subsequent query to the first one, the user can change only the parameters strictly required for the new job submission (e.g. change the indicator or the time) and SMapp will calculate the new indicator given the parameter set just defined. 
-This behaviour was expressly required by end users to facilitate the instantiation of more requests for the purpose of scrutinizing the implementation of executed urban plans.
 
 \subsection{Data layer}
 The Open Geospatial Consortium (OGC), which aims to develop community-consensus open geospatial standards, provides a family of enabling technologies for sharing geospatial data and analytical capabilities on a distributed network. 
@@ -291,6 +281,7 @@ In addition to standard open-source codes available from the dual infrastructure
 For example, the client side has a dedicated interface to configure the RoI, which includes different methods such as the multiple selection of several administrative units at any hierarchical level (municipalities, provinces, and regions). 
 Another example is given by the availability of different types of plots that are generated dynamically in addition to the geodata in order to enhance the readiness and interpretation of results.
 
+\section{ \add[GL]{Results} }
 \subsection{Processing layer}
 On the server side, specific classes written in Java and CUDA have been developed to perform the calculations required to account for soil sealing and land take. 
 Some calculations may be very demanding since they rely on high resolution grids (i.e. a square pixel of size 20 m) or on high thematic detail (i.e. CLC Level 3) feeding requests over large geographical areas (such as administrative regions or the whole Italy). For instance, this is the case of the rural fragmentation index, which is computed on the 20 m imperviousness layers. 
@@ -329,7 +320,19 @@ These patches are summed up to calculate the overall discontinuous urban fabric 
     Elapsed times in the kernel box refer to an image of size $180 \times 10^6$ pixels.} \label{fig:ccl}
 \end{figure}
 
-\section{Description of models/indicators of soil sealing}
+
+\subsection{Workflow of the integrated platform}
+The integration of CUDA kernels, backend (i.e. Java and JCuda), and web interface requires a systematic workflow approach. 
+A typical workflow includes three major steps: job submission, job status query, and results management, where the realization of each step requires integration across the three tiers of the cyberinfrastructure. 
+
+Accordingly, Figure \ref{fig:SMapp} shows an overview of the available toolboxes for analysis, i.e. the toolbox for land use/land cover (LULC) change (Figure \ref{fig:SMapp}, a) and the toolbox for soil sealing indicators (Figure \ref{fig:SMapp}, b).
+The user can build a tailored query owing to the two job submission steps, one for each toolbox. 
+For any soil sealing indicator, the user must select --- according to the following hierarchical order --- the dataset they intend to use (i.e. CORINE land cover or high-resolution imperviousness layer, Figure \ref{fig:SMapp}, b1); the time of the analysis (one year or two years, Figure \ref{fig:SMapp}, b2); the selection of a soil sealing indicator (Figure \ref{fig:SMapp}, b3); the composition of LULC classes optionally (Figure \ref{fig:SMapp}, b4); and finally, the region of interest (Figure \ref{fig:SMapp}, b5). Therefore, in order to ease the definition of a possible multi-polygon RoI, there is an ad hoc accordion pane for the rapid identification and selection of any Italian administrative unit.
+The RoI definition accordion pane is particularly useful because it allows the user to select one or more administrative units at any level of the topological hierarchy (municipality, province, region) and to freely draw a new region of interest directly over the displayed map within SMapp.
+For any subsequent query to the first one, the user can change only the parameters strictly required for the new job submission (e.g. change the indicator or the time) and SMapp will calculate the new indicator given the parameter set just defined. 
+This behaviour was expressly required by end users to facilitate the instantiation of more requests for the purpose of scrutinizing the implementation of executed urban plans.
+
+\subsection{Description of models/indicators of soil sealing}
 The list of indicators we have developed and implemented are given in Table 2, which have been chosen in close collaboration with urban planners to address their planning needs. 
 They refer to land use/land cover descriptors, rate of change of land use/land cover, marginal soil sealing, extent of urban sprawl, density of urban boundaries, degree of urban dispersion, rural/urban fragmentation, global land take dynamics, and estimate of loss in food supply due to soil sealing. 
 The table refers to the two official datasets described above, i.e. the Corine Land Cover and the soil imperviousness. 
@@ -429,8 +432,8 @@ Furthermore, the choice between the two datasets reflects the kind of soil seali
     \end{tabular}
 \end{table}
 
-\section{Application: case studies with validation}
-\subsection{The case study of Italy}
+\subsection{Application: case studies with validation}
+\subsubsection{The case study of Italy}
 In Italy, the monitoring of land take is ensured by the National System for the Protection of the Environment (SNPA) as established by L.132/2016.
 Accordingly, the SNPA is coordinated by ISPRA and involves all Italian Environmental Protection Agencies (ARPA-APPA). 
 This monitoring is scheduled in order to have an annually updated picture of the soil sealing evolution (e.g. ISPRA 2016, 2018) and the dynamics of land transformation and urban development, which is done through the production of thematic maps and the development of specific indicators. 
@@ -463,7 +466,7 @@ It provides very detailed geospatial information about the land use classes, whi
 Further, the new urbanization depicted in Fig. 4c shows that the land use mostly affected by urbanization is the less specialised one, namely \textit{complex cultivation patterns}. 
 Therefore, higher specialization in agriculture would perhaps produce more resilient LULC classes to challenge new land take pressures.
 
-\subsection{The case study of territorial plan (PTCP)}
+\subsubsection{The case study of territorial plan (PTCP)}
 In Italy, the reference administrative level for urban planning coordination in terms of environmental issues is the province law 142/1990. 
 Thus, it is the key geographical level to challenge land take. 
 However, this situation somehow remained unchanged after law 56/2014 (rules on metropolitan cities) and even after the constitutional referendum that transfers the competences of the provinces to the regions (4 December 2016).
@@ -496,7 +499,7 @@ Thus, this analysis is useful to describe major geographical trends of rural int
 
 The output from the above analysis can be profitably used to better plan future urban development, thus avoiding new fragmentation of rural areas, especially those with high integrity, and to plan where to place new green infrastructures connecting rural areas with high rural integrity.
 
-\subsection{The case study of the municipal plan (PUC)}
+\subsubsection{The case study of the municipal plan (PUC)}
 The municipal urbanization plan (PUC) is a tool for the management of the Italian municipal territory, which consists of cartographic and technical documents along with regulations for the management of urban and territorial transformations within the municipality.
 
 The PUC stems from the old well known general regulatory plan (PRG established by Italian law 1150/1942); it is produced by urban planners assisted by experts from other fields (e.g. environmental scientists, pedologists, geologists, and lawyers).
