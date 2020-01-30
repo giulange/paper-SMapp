@@ -117,11 +117,17 @@ T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
 
 
 \abstract[ Abstract \reviewer{["no quantitative result"]} ]{ 
-This work aims \toberevised{to show \reviewer{[avoid of "show" / "demonstration"]}} that a new type of web-based geospatial Decision Support System --- Soil Monitor application (SMapp, www.soilmonitor.it), developed on top of open-source Geospatial Cyber-Infrastructures (GCI) --- can provide a multidisciplinary operational tool useful for a multi-stakeholder community to challenge soil sealing.
+This work propose
+%aims \toberevised{to show \reviewer{[avoid of "show" / "demonstration"]}} that 
+a new type of web-based geospatial Decision Support System --- Soil Monitor application (SMapp, www.soilmonitor.it), developed on top of open-source Geospatial Cyber-Infrastructures (GCI) --- which provides a multidisciplinary operational tool useful for a multi-stakeholder community to challenge soil sealing.
 Different technological and technical features of SMapp are presented and discussed with particular reference to the combination of WebGIS with on-the-fly geospatial processing based on GPU computing, specifically designed, developed, and embedded in the presented GCI allowing real-time requests.
 Soil Monitor is shown as operational in three different case studies, which are also different scales where policy making and decisions about measures to tackle land take are entangled, at least in Italy.
 Accordingly, examples of soil sealing indicators are presented, such as an interactive Land Use and Land Cover (LULC) matrix and the map of rural fragmentation.
-As a result, SMapp models are deemed useful to (i) support decision making, (ii) raise awareness in people, professionals, and experts of other fields, and (iii) contrastingly put current law in force and actual land take situation owing to multitemporal datasets as an ex post control tool.
+\reviewer{("no quantative results": PUT HERE A SUMMARY)}
+As a result, SMapp models are deemed useful to 
+(i) support decision making, 
+(ii) raise awareness in people, professionals, and experts of other fields, 
+and (iii) contrastingly put current law in force and actual land take situation owing to multitemporal datasets as an ex post control tool.
 The pros and cons are discussed with special emphasis on the limits (new codes from scratch) and benefits (low-cost, low-energy fast computing) from the use of codes and primitives for land degradation written in CUDA (Compute Unified Device Architecture): a library to maintain and develop further in order to success in facing land take, according to the zero land take deadlines.
 }
 
@@ -148,7 +154,7 @@ The pros and cons are discussed with special emphasis on the limits (new codes f
 %\footnotetext{\textbf{Abbreviations:} ANA, anti-nuclear antibodies; APC, antigen-presenting cells; IRF, interferon regulatory factor}
 
 \section{Introduction}\label{sec1}
-Soil sealing is one of the most serious land degradation process, which refers to covering the ground by an impermeable material.
+Soil sealing is one of the most serious land degradation processes, which refers to covering the ground by an impermeable material.
 It is regarded as the greatest threat to soil functions since it strongly disturbs or removes essential ecosystem services such as food production, water absorption, rainwater infiltration, and groundwater recharge, filtering and buffering capacity of the soil, biodiversity, etc. \citep{FAO15}.
 Accordingly, several services of such kind are irreplaceable, such as those provided and supported by healthy soils and diverse vegetation \citep{Dunbar13}.
 According to the European Environmental Agency \citep{EEA2011}, land take (land converted into artificial surfaces) by cities has increased by about 80\% in the past 60 years (whereas population has grown by only 33\%); thus, soil sealing and land take are the most important issues reducing irreplaceable ecosystem services.
@@ -159,26 +165,38 @@ Despite the large list of regulatory frameworks, there are no signs of change at
 Moreover, the causes for soil sealing are very diverse and possible actions strongly depend on where they should be taken.
 
 In the last decade, research on soil sealing has attempted to contribute to the understanding of this challenging soil degradation process. Major effort has been undertaken for the development of suitable monitoring methodologies \citep{ISPRA18,Alvarado18} and the evaluation of the impacts over the loss of soil ecosystem services \citep{Calzolari16}. Differently, limited effort has gone into developing operational spatial decision support tools addressing soil sealing.
-This situation is unfortunate considering that there is a growing body of applications illustrating the utility of the geospatial decision support system (SDSS) and visualization tools for spatial and urban planning  \citep[e.g.][]{Bishop98,Geertman12,Carsjens07,Malczewski04,Malczewski06,Meyer08}.
-In most cases, these SDSS have been conceived and developed to address small geographical areas, such as the SDSS proposed by \citep{Piero17} for 13 municipalities in South Italy, or for solving few, if not one, specific problems \citep[e.g.][]{Fedra98,Meyer08,Torresan16}. %(e.g. Fedra \& Feoli, 1998; Meyer \& Grabaum, 2008; Torresan et al., 2016).
+This situation is unfortunate considering that there is a growing body of applications illustrating the utility of the Spatial Decision Support System (SDSS) and visualization tools for spatial and urban planning  \citep[e.g.][]{Bishop98,Geertman12,Carsjens07,Malczewski04,Malczewski06,Meyer08}.
+In most cases, these SDSS have been conceived and developed to address small geographical areas, such as the SDSS proposed by \cite{Piero17} for 13 municipalities in South Italy, or for solving few, if not one, specific problems \citep[e.g.][]{Fedra98,Meyer08,Torresan16}. %(e.g. Fedra \& Feoli, 1998; Meyer \& Grabaum, 2008; Torresan et al., 2016).
 
-Moreover, few contributions have clearly identified that urban planning DSS must include predictive scenario analysis \citep{Choi16,Xiang03,Volk10} and the \textit{what-if} modelling. In fact, this is very much required in planning procedures in order to design and evaluate the potential impact of alternative urban/rural spatial plans \citep{Hawkins02,Harms95,Choi16,vonHaaren06}. 
+Moreover, few contributions have clearly identified that urban planning DSS must include predictive scenario analysis \citep{Choi16,Xiang03,Volk10} and \textit{what-if} modelling. In fact, this is very much required in planning procedures in order to design and evaluate the potential impact of alternative urban/rural spatial plans \citep{Hawkins02,Harms95,Choi16,vonHaaren06}. 
 Furthermore, scenario analysis is crucial in Strategic Environmental Assessment (e.g. SEA and EIA EU Directives). Currently, this fundamental planning procedure is dominated by qualitative assessment methods while there is a great demand for objective and quantitative methods \citep{Choi16} to provide more accurate and quantitative predictions of the impact of a plan or project \citep{Carver03,Vanderhaegen05}.
 
-A decision support system addressing soil sealing should rely on well-established models, algorithms, and indicators. The use of indicators to monitor and assess soil sealing is already well known \citep{King16}, and there has been a proliferation of indicators, metrics, reports, community indicators, state of the art reports, and assessment reports, etc. \citep{Maclaren96,Tanguay10}.
+A decision support system addressing soil sealing should rely on well-established models, algorithms, and indicators. The use of indicators to monitor and assess soil sealing is already well known \citep{King16}, and there has been a proliferation of indicators, metrics, reports, community indicators, state of the art reports, assessment reports, etc. \citep{Maclaren96,Tanguay10}.
 In addition, specific spatial resolution requirements of indicators have been greatly emphasised \citep{Jaeger08}.
 Furthermore, a large set of soil sealing indicators is typically tuned to the specific geographic, environmental, and socio-economic setting under investigation.
 For instance, \citet{Munafo13}, analysed the Italian territory and identified soil sealing trends in relation to the distance from the coastline or the elevation belt, to the land cover classes or the distance from neighbour urban patches.
-Accordingly, references to soil sealing indicators and best practices regarding producing them in different EU countries have been reported in \citep{EC2011b} in which, for instance, the monitoring of built areas, the total amount of green areas within city boundaries, and the unpaved land areas can be found.
+Accordingly, references to soil sealing indicators and best practices regarding producing them in different EU countries have been reported in \citep{EC2011b} in which, for instance, the monitoring of built areas, the total amount of green areas within city boundaries, and the unpaved land areas can be found. \toberevised{(IT SEEMS THAT WE MISS A CONCLUDING SENTENCE FOR THIS PARAGRAPH)}
 
-Consequently, it is evident that 
+% AIMS PARAGRAPH: topic sentence (gap) -> supporting sentences (needs) -> concluding sentence (our work)
+Authors stress on the current
+%there exist a gap between land degradation and soil sealing issues and tools coming from research that can help stakeholders tackle these issues.
+strong gap in developing and providing integrated operational tools 
+dealing with soil sealing 
+to support awareness and decision making by stakeholders.
+This gap is amplified by a complete lack of tools 
+%dealing with soil sealing 
+capable to analyze large areas, and the situation is even more difficult, considering that these tools --- to be properly operated by planners --- should also enable scenario analysis (\textit{what-if} modelling).
+In more detail, it is thoroughly evident that 
 (i) action is required since ``future generations will not see a healthy soil coming back within their lifetime once it has been destroyed\dots'' \citep{SWD12}; 
 (ii) soil sealing mitigation must embody urban and landscape planning tools \citep{Artmann14}, enabling the link of opposite socio-economic driving forces, such as urban regeneration versus environmental protection; 
 (iii) inter- and trans-disciplinary studies integrating soils in the environment are required to challenge soil sealing;
-(iv) a cross-topic awareness should be raised regarding soil sealing in the policy, research, and public sectors; 
-and (v) there is a strong gap in building/providing integrated operational tools to support decision making over soil sealing for large areas, and the situation is even more difficult, considering that these tools --- to be properly operated by planners --- should also enable scenario analysis (\textit{what-if} modelling).
+(iv) a cross-topic awareness should be raised regarding soil sealing in the policy, research, and public sectors.
+A viable solution to fill this gap fits with the general aim of our work, which deals with the development of
+%This paper presents
+%(\toberevised{demonstrate}\reviewer{[avoid of "demonstration" and add a "clear research purpose"]} that)
+a new type of geospatial DSS --- a web-based DSS, namely Soil Monitor application (SMapp) --- developed on top of Geospatial Cyber-Infrastructures (GCI), providing a multidisciplinary operational tool useful for a multi-stakeholder community to challenge soil sealing at different spatial scales.
+Soil Monitor, by placing emphasis on landscapes, seeks to reduce the gap between policy and implementation being able to quantify and visualize (with the change in time of) the state of the land system.
 
-The general aim of this paper is to \toberevised{demonstrate}\reviewer{[avoid of "demonstration" and add a "clear research purpose"]} that a new type of geospatial DSS --- a web-based DSS, namely Soil Monitor application (SMapp) --- developed on top of Geospatial Cyber-Infrastructures (GCI), can provide a multidisciplinary operational tool useful for a multi-stakeholder community to challenge soil sealing at the entire Italian country scale. 
 %This system is designed to address the accountancy of soil sealing through different indicators providing operational support to urban planners, decision makers and multi stakeholders involved in landscape planning and interested in evaluating the impact of soil sealing. 
 %This specific contribution required a different approach, the result of which is the Soil Monitor web application. 
 %A set of indicators can be calculated in real-time using either Italian administrative levels (NUTS2, NUTS3, and LAU2) or user-drawn Regions of Interest (RoI). 
@@ -191,10 +209,10 @@ The general aim of this paper is to \toberevised{demonstrate}\reviewer{[avoid of
 %\subsection{ Development of Soil Monitor }
 %Soil Monitor\footnote{\emph{www.soilmonitor.it}} is currently in use and active within the Italian administrative boundaries (Figure \ref{fig:SMapp}).
 Soil Monitor is a decision support system which enables users to interact directly with the geospatial data on the map via the web (Figure \ref{fig:SMapp}).
-The Soil Monitor App (SMapp) is based on free and open-source geospatial libraries and programs specifically designed to create, manage, and share different types of geospatial information in a rather safe, simple, and intuitive way.
+The Soil Monitor application (SMapp) is based on free and open-source geospatial libraries and programs specifically designed to create, manage, and share different types of geospatial information in a rather safe, simple, and intuitive way.
 In particular, SMapp is deployed on the dual infrastructure GeoServer and MapStore, the both of which are mainly developed and maintained worldwide by GeoSolutions.
 
-\begin{figure}[t]
+\begin{figure}[t] % FIGURE 01
     % \includegraphics[width,,height=15pc,draft]
     \centerline{\includegraphics[width=500pt]{Figure01.pdf}}
     \caption{Exemplification of the Soil Monitor application (SMapp) dashboard with main panes (red boxes). 
@@ -202,34 +220,38 @@ In particular, SMapp is deployed on the dual infrastructure GeoServer and MapSto
     Geospatial calculations can be distributed also on GPU cards owing to a tailored CUDA-C library developed for SMapp (c). } \label{fig:SMapp}
 \end{figure}
 
-SMapp is based on a three-tier logical architecture (Figure\ref{fig:GCI}) with separated processes made by (i) the \textit{visualization tier}, which displays information related to the services, (ii) the \textit{logic tier} that controls the functionality of the application by performing detailed processing, and (iii) the \textit{data tier}, which consists of the database where information is stored and retrieved in a manner that keeps data neutral and independent of the application servers and of the logic or processing tier.
+SMapp is based on a three-tier logical architecture (Figure\ref{fig:GCI}) with separated processes made by 
+(i) the \textit{visualization tier} (section \ref{sec:viewTier}), which displays information related to the data and services, 
+(ii) the \textit{logic} or \textit{processing tier} that controls the functionality of the application by performing detailed geospatial processing (section \ref{sec:logicTier}), and 
+(iii) the \textit{data tier} (section \ref{sec:dataTier}), which consists of the database where information is stored and retrieved in a manner that keeps data neutral and independent of the application servers and of the logic tier.
 
-In Figure \ref{fig:GCI}, a synthesis is sketched of the operating mode of the platform showing the flow of data that feed different server functions (e.g. models), which, in turn, produce a set of services that can finally be accessed by the dashboard.
-
-\begin{figure}[t]
+\begin{figure}[t] % FIGURE 02
     % \includegraphics[width,,height=15pc,draft]
     % trim=left bottom right top, trim=0 0 0 50,clip,
     \centerline{\includegraphics[width=500pt]{Figure02.pdf}}
     \caption{Main tiers, workflows, and technological components of the SMapp geospatial cyber infrastructure.} \label{fig:GCI}
 \end{figure}
 
-\update{The description of data and visualization tiers follows, while the processing tier is presented in section Results.}
+\toberevised{(DELETE THIS SENTENCE OR PUT IN FIGURE CAPTION)\\
+In Figure \ref{fig:GCI}, the operating mode of the platform is sketched  showing the flow of data that feed different server functions (e.g. models), which, in turn, produce a set of services that can be finally accessed by the dashboard.}
+%The data and visualization tiers are described in section \ref{sec:dataTier} and section \ref{sec:viewTier} respectively, while a summary of the logic tier is in section \ref{sec:logicTier}.
 
-\subsection{\change[GL]{Data layer}{Data} \update{[materials]}}
+
+\subsection{Data (data tier)\update{[materials]}}\label{sec:dataTier}
 The Open Geospatial Consortium (OGC), which aims to develop community-consensus open geospatial standards, provides a family of enabling technologies for sharing geospatial data and analytical capabilities on a distributed network. 
-Data sharing (interoperability) in Soil Monitor is supported both in input --- to visualize data coming from remote services (such as ISPRA or other national level administrative bodies) --- and in output to provide different data services such as WMS and WFS to allow a client visualization of static images for instance over the desktop computer in GIS environments.
-Moreover, web services are automatically appended to the new GIS data calculated by the CUDA engine to enable the visualization of results both locally within Soil Monitor, and remotely, for instance, within desktop GIS software environments.
+Data sharing (interoperability) in Soil Monitor is supported both in input --- to visualize data coming from remote services (e.g. those provided by ISPRA or other national level administrative bodies) --- and in output to provide different data services such as WMS (Web Mapping Service, for serving georeferenced map images over the internet) and WFS (Web Feature Service, which supports the vector data model) to allow a client visualization of output images produced by the logic tier.
+Web services are automatically appended to the new GIS data calculated by the CUDA engine to enable the visualization of results both locally within Soil Monitor, and remotely, for instance, within desktop GIS software environments.
 Indeed, after ingestion in GeoServer, data become available for visualization and calculation purposes for the whole Italian territory Soil Monitor stores as follows:
 \begin{itemize}
     \item The land use and land cover map in the period of 1956-60 produced by the Italian Touring Club in collaboration with National Council of Research, CNR (map of land use in Italy, scale 1: 200.000).
     \item The CORINE Land Cover (CLC) is a valuable source of information about land use and land cover, produced at the European level since the '90s and updated regularly (originally coordinated by the European Commission and the European Environmental Agency; now included in the Copernicus framework).
-    CLC vector data are produced by photointerpretation of satellite images, with a minimum mapping unit of 25 ha and a classification system organized in three levels of thematic detail: level 1 with 5 land use and land cover classes, level 2 with 15 land use and land cover classes, and level 3 with 43 land use and land cover classes. 
+    CLC vector data are produced by photointerpretation of satellite images, with a minimum mapping unit of 25 ha and a classification system organized in three hierarchical levels of thematic detail: level 1 with 5 land use and land cover classes, level 2 with 15 land use and land cover classes, and level 3 with 43 land use and land cover classes. 
     In SMapp, the raster version of CLC with a spatial resolution of 100 m is available for the years 1990, 2000, 2006, 2012, and 2018. Considering the homogeneity over the entire Europe and the constant update, CLC is largely used for spatial analysis, land cover change assessment, and policy making.
     \item The National High-Resolution Soil Consumption (NHRSC) was produced for Italy by ISPRA (ISPRA, 2016); the NHRSC is a raster that identifies artificial land cover areas with a spatial resolution of 10 m, produced for 2006, 2009, 2012, 2015, 2016, 2017 and 2018 with a semi-automatic classification of satellite images and the integration of local ancillary data such as OpenStreetMap; NHRSC included in Soil Monitor has a binary classification system such as non-sealed soil and sealed soil, according to the description given in Table \ref{tab:IMPclasses}.
-    \item The administrative units: Italian administrative data are provided by the national institute of statistics (ISTAT). 
+    \item The administrative units: Italian administrative data are provided by the Italian institute of statistics (ISTAT). 
     These data represent the administrative units (also NUTS) in vector format.
     \item The population: population data are provided at the Municipal level by ISTAT, which periodically collects census data and updates this information every year. 
-    \item The digital soil grids: Predictions on key soil properties performed globally at 250 m spatial resolution by ISRIC\footnote{available at http://data.isric.org/geoserver/sg250m/wms}. This is an example of interoperability based on the OGC standard called Web Mapping Service (WMS).
+    \item The digital soil grids: Predictions on key soil properties performed globally at 250 m spatial resolution by ISRIC\footnote{available at http://data.isric.org/geoserver/sg250m/wms}. This is an example of OGC compliant interoperability based on WMS which is used as input source of georederenced map images in SMapp.
 \end{itemize}
 
 \begin{table}
@@ -272,12 +294,34 @@ Comparisons between CLC layers can be executed at three different levels of the 
 In order to enable comparison with the Italian Touring Club layer, the most detailed CORINE legend (Level 3) has been homogenized with that from Touring Club. 
 The imperviousness layers have been binarized (2-bit images) by applying a threshold to the level of imperviousness equal to 30\%, above which a pixel is taken as impervious.
 
-\subsection{Description of models and indicators of soil sealing \update{[methods]}}
-The list of indicators we have developed and implemented are given in Table 2, which have been chosen in close collaboration with urban planners to address their planning needs. 
-They refer to land use/land cover descriptors, rate of change of land use/land cover, marginal soil sealing, extent of urban sprawl, density of urban boundaries, degree of urban dispersion, rural/urban fragmentation, global land take dynamics, and estimate of loss in food supply due to soil sealing. 
-The table refers to the two official datasets described above, i.e. the Corine Land Cover and the soil imperviousness. 
-The CLC layers allow investigations on multiple classes of land use and land cover but at a relatively coarser spatial resolution (either 100 m or 250 m spatial resolution).
-Conversely, soil imperviousness is available over high spatial detailed layers (20 m spatial resolution) and aggregates the information of land use in only two classes, i.e. sealed and unsealed land. 
+\subsection{Development of the dashboard (visualization tier) \update{[methods]}}\label{sec:viewTier}
+% Visualization of data and use of soil sealing tools
+The dashboard design includes graphical tools, procedures to combine spatial data (analysis and visualization), and the production of tables and maps. 
+The frontend application is based on MapStore (Figure \ref{fig:GCI}) and the overall structure of the graphical user interface can be distinguished in four main panes: the data, the map, the workspace, and the accordion panes (Figure \ref{fig:SMapp}).
+The \textit{data pane} enables the visualization of different data, but not all information used in the calculation is visible, such as the population vector data. 
+Moreover, MapStore enables users to add external data sources equipped with web services for rendering rasters and vectors, enhancing the overall interoperability of the platform. 
+For instance, it can be particularly useful to compare the result of calculations with constraint maps coming from other data providers, such as the Italian Ministry of Cultural and Environmental Heritage, to check the soil sealing results. Furthermore, the \textit{map pane} enables the visualization of both the input geospatial data and the output maps calculated by the models and indicators available in the toolboxes. 
+Moreover, the \textit{workspace pane} is where all instantiated requests are displayed. 
+The toolboxes enable the allocation of several asynchronous requests per single user at the same time, which means that they can be calculated concurrently on the available CPU and GPU resources. 
+The processes launched by users, which may be running at the same time, are displayed in the workspace as running, completed or interrupted according to their states. 
+The \textit{accordion panes} are used to give the user full access to the processing layer parameters in a transparent way (see Figure \ref{fig:SMapp} for the query building procedure).
+
+In addition to standard open-source codes available from the dual infrastructure GeoServer and MapStore, new codes have been written to enrich functionality. 
+For example, the client side has a dedicated interface to configure the RoI, which includes different methods such as the multiple selection of several administrative units at any hierarchical level (municipalities, provinces, and regions). 
+Another example is given by the availability of different types of plots that are generated dynamically in addition to the geodata in order to enhance the readiness and interpretation of results.
+
+
+\subsection{Soil sealing metrics embedded in Soil Monitor\update{[methods]}}
+% https://smurbs.eu/wp-content/uploads/2018/10/ISPRA_Metrics.pdf
+% https://ec.europa.eu/environment/archives/soil/pdf/sealing/Soil%20Sealing%20In-depth%20Report%20March%20version_final.pdf
+% URBAN GROWTH MONITORING, METRICS, URBAN GROWTH, URBAN DENSITY AND SPRAWL, GREEN AREAS, SOIL SEALING RATIOS
+Huge amount of metrics are available using different software to monitor and measure urban growth, urban density and sprawl, soil sealing and land take.
+The limited list of indicators we have developed and implemented in SMapp have been chosen in close collaboration with urban planners to address their planning needs. 
+A summary of available metrics is given in Table \ref{tab:SMappToolbox}.
+They include to land use and land cover metrics, rate of change of land use and land cover, marginal soil sealing, extent of urban sprawl, density of urban boundaries, degree of urban dispersion, rural and urban fragmentation, Country land take dynamics, and estimate of loss in food supply due to soil sealing. 
+The table refers to the two official datasets described in the data tier section above, i.e. the Corine Land Cover and the soil imperviousness. 
+The CLC layers allow investigations on multiple classes of land use and land cover but at a relatively coarser spatial resolution (either 100 m or 250 m spatial resolution without or with the Touring Club data respectively).
+Conversely, soil imperviousness is available over high spatial detailed layers (20 m spatial resolution) and aggregates the information of land use in only two classes, that is sealed and unsealed land as defined in Table \ref{tab:IMPclasses}. 
 Furthermore, the choice between the two datasets reflects the kind of soil sealing indicator, the detail in the thematic domain, and the spatial resolution required in the output map. 
 
 \begin{table}[b]
@@ -371,91 +415,88 @@ Furthermore, the choice between the two datasets reflects the kind of soil seali
     \end{tabular}
 \end{table}
 
-
-\subsection{\change[GL]{Visualization tier}{Development of Soil Monitor: the dashboard} \update{[methods]}} % Visualization of data and use of soil sealing tools
-The dashboard design includes graphical tools, procedures to combine spatial data (analysis and visualization), and the production of tables and maps. 
-The frontend application is based on MapStore (Figure \ref{fig:GCI}) and the overall structure of the graphical user interface can be distinguished in four main panes: the data, the map, the workspace, and the accordion panes (Figure \ref{fig:SMapp}).
-The \textit{data pane} enables the visualization of different data, but not all information used in the calculation is visible, such as the population vector data. 
-Moreover, MapStore enables users to add external data sources equipped with web services for rendering rasters and vectors, enhancing the overall interoperability of the platform. 
-For instance, it can be particularly useful to compare the result of calculations with constraint maps coming from other data providers, such as the Italian Ministry of Cultural and Environmental Heritage, to check the soil sealing results. Furthermore, the \textit{map pane} enables the visualization of both the input geospatial data and the output maps calculated by the models and indicators available in the toolboxes. 
-Moreover, the \textit{workspace pane} is where all instantiated requests are displayed. 
-The toolboxes enable the allocation of several asynchronous requests per single user at the same time, which means that they can be calculated concurrently on the available CPU and GPU resources. 
-The processes launched by users, which may be running at the same time, are displayed in the workspace as running, completed or interrupted according to their states. 
-The \textit{accordion panes} are used to give the user full access to the processing layer parameters in a transparent way (see Figure \ref{fig:SMapp} for the query building procedure).
-
-In addition to standard open-source codes available from the dual infrastructure GeoServer and MapStore, additional codes have been written to enrich functionality. 
-For example, the client side has a dedicated interface to configure the RoI, which includes different methods such as the multiple selection of several administrative units at any hierarchical level (municipalities, provinces, and regions). 
-Another example is given by the availability of different types of plots that are generated dynamically in addition to the geodata in order to enhance the readiness and interpretation of results.
-
 %\section{ \add[GL]{Results} }
 \section{ Results }
+\update{We need a more gentle introduction to and description of the processing layer, avoiding it being viewed as a technical report/manual (section \ref{sec:logicTier})}
 
-\subsection{ \change[GL]{Processing layer}{Implementation of the processing engine: the soil sealing indicators(/toolbox) at work}}
-On the server side, specific classes written in Java and CUDA have been developed to perform the calculations required to account for soil sealing and land take. 
-Some calculations may be very demanding since they rely on high resolution grids (i.e. a square pixel of size 20 m) or on high thematic detail (i.e. CLC Level 3) feeding requests over large geographical areas (such as administrative regions or the whole Italy). For instance, this is the case of the rural fragmentation index, which is computed on the 20 m imperviousness layers. 
-Even when selecting a small RoI, the relative high calculation demand depends on the logic of the algorithm itself, since it has to visit more than six thousand neighbour pixels $\left( \sim ( 800/\left(20\times2\right) )^2 \right)$ to calculate how fragmented each target pixel is, given a radius of 800 meters in the moving window selected by the user.
-These cases may not manage to return answers in real-time or near-real-time for relatively large geographical extents, which explains one of the reasons why calculations are instantiated asynchronously.
+Soil Monitor\footnote{\emph{www.soilmonitor.it}} is currently in use and active within the Italian administrative boundaries (Figure \ref{fig:SMapp}).
 
-In addition to data services, Soil Monitor implements Web Processing Services (WPS), which expose the algorithm of a soil sealing model or indicator outside the web application (Fig. 2). 
-This was particularly useful to perform tests about the goodness of calculations in different spatial and temporal contexts, without the tedious infilling of the accordion panes to submit more and more requests. 
-The test was performed by invoking a geospatial process with a known set of parameters by means of the supported POST request method submitted directly to the GeoServer endpoint. 
-Subsequently, the parameters are passed to JCUDA, which, in turn, invokes the execution of CUDA kernels compiled in PTX files. 
-The POST requests can be submitted from within the Unix terminal and, in our work, from MatLab scripts specifically designed for testing purposes. 
-The testing procedure collects the results coming from the three independent computing environments: 
-(i) the stand-alone executable (EXE) compiled from the source CUDA-C code; 
-(ii) the WPS based on the JAI-JCUDA-CUDA chain executing the PTX compiled from the same source code used in the previous point; and 
-(iii) a MatLab code implementing an alternative algorithm to perform the same geospatial processing. 
-The test ends with a comparison of results coming from the three approaches to check for both speed performance and accuracy. 
-This procedure was used as a standard during the development stage in order to test for inaccuracies in either the CUDA algorithms targeted to geospatial processing or in the deployment of the computing chains.
-Further, WPS can be easily adapted to enable the dynamic binding of geospatial processes to aid client needs, such as running a standardized algorithm on personal data.
 
-The CUDA framework and its binding from Java is implemented in the processing layer, where a list of developed CUDA kernels are loaded as a library in the infrastructure. 
-First, a library of CUDA kernels is written in C, which can be used both standalone and as a compilation in PTX. 
-Further, the Parallel Thread Execution (PTX) is a low-level parallel thread execution virtual machine and instruction set architecture, which provides a stable programming model and instruction set for general purpose parallel programming. 
-Moreover, the PTX instructions are optimized for and translated to native target-architecture instructions. 
-Second, the very fundamental CUDA kernels compiled as PTX files work as primitives that are combined in the JCUDA layer to build the crafted algorithms to address the soil sealing geospatial calculations. 
-The advantage of this type of orchestration is that new models and indicators that may be added in the Soil Monitor toolboxes can be implemented using the same library of CUDA kernels, while little development and coding is required. 
-Accordingly, an example of the pyramidal architecture based on the CUDA kernels is presented in Figure\ref{fig:ccl}, describing the calculation of the discontinuous urban fabric surface ($S_{DUF}$) using a connected component labelling algorithm specifically developed for SMapp. 
-This algorithm is made of 8 CUDA kernels and one thousand lines of code performing the labelling of a 2-bit high resolution impervious layer in a 64-bit layer of ordered labels, one for each distinct urban patch.
+\subsection{ Soil sealing processing engine \toberevised{(logic tier)} }
+\label{sec:logicTier}
+On the server side, specific functions written in Java (classes) and CUDA (kernels) have been developed to perform the calculations required to measure soil sealing and land take, using the indicators reported in Table \ref{tab:SMappToolbox}. 
+Some calculations may be very demanding since they rely on high resolution grids (i.e. a square pixel of size 20 m) or on high thematic detail (i.e. CORINE land cover at level 3 with 43 classes) feeding requests over large geographical areas (such as administrative regions or the whole Italy).
+For instance, this is the case of the rural fragmentation index, which is computed on 20 m imperviousness layers and even relies on an intrinsic demanding geospatial processing. 
+Indeed, even if selecting a small RoI, the relatively high calculation demand depends on the logic of the algorithm itself, since it has to visit about six thousand neighbour pixels $\left( \sim \left( \left(800/20\right)\times2 \right)^2 \right)$ to calculate how fragmented each target pixel is, given a radius of 800 meters in the moving window selected by the user.
+These cases may not manage to return answers in real-time or near-real-time for relatively large geographical extents, which explains one of the reasons why calculations are instantiated asynchronously in the geospatial cyberinfrastructure.
+It means that the user can submit how many requests as needed by own analysis, close the web page and then go back later to Soil Monitor to find the results in the workspace.
+
+In addition to data services (see sharing and interoperability in section \ref{sec:dataTier}), Soil Monitor implements Web Processing Services (WPS) which exposes the algorithm of a soil sealing metric outside the web application (Figure \ref{fig:GCI}, logic tier). 
+This was particularly useful to perform random tests about the goodness and coherence of calculations in different spatial and temporal contexts, without the tedious infilling of the accordion panes to submit more and more requests. 
+A test was performed by invoking a geospatial process with a known set of parameters by means of the supported POST request method (using XML language) submitted directly to the GeoServer endpoint (JAI node).
+The POST requests can be submitted from within the Unix terminal and, in our work, from MatLab scripts specifically designed for testing purposes.
+After the submission of the request either using the Soil Monitor graphical interface or by the POST method, the parameters are passed to the JCUDA layer, which, as a software bridge, invokes the execution of the CUDA kernels compiled in PTX files (forward high performance computing step). The matrices returned by the CUDA calculations are manipulated to become GIS data that are stored in GeoServer and can be visualised over the Soil Monitor web application (backward geoprocessing step).
+
+To certify each Soil Monitor model, during the implementation of SMapp we carried out a systematic testing procedure 
+by collecting and comparing the results returned by the following three independent computing environments:
+\begin{itemize}
+    \item Running the stand-alone executable (EXE) compiled from the source CUDA-C code (Figure \ref{fig:GCI} logic tier).
+    The source high performance computing code written in CUDA-C can be compiled to get either a stand-alone executable (EXE) or the executable file (PTX) embedded in Soil Monitor.
+    In this step we run the stand alone executable passing as input the same data and parameters used in the other computing environments.
+    This computing environment validates the goodness of the high performance computing algorithm implemented in the CUDA-C code.
+    \item Running the WPS as explained above.
+    It is based on the JAI-JCUDA-CUDA chain which executes the CUDA kernels compiled in the PTX files. This computing environment is crucial to validate together the forward high performance computing step and the backward geoprocessing step embedded in the Soil Monitor geospatial cyberinfrastructure. 
+    \item Running a MatLab code which implements the same geospatial processing but with a different algorithm.
+\end{itemize}
+
+The test ends with a comparison of results coming from the three environments to check for both speed performance and accuracy. 
+This procedure was used as a standard during the development stage in order to test for inaccuracies in either the CUDA algorithms targeted to geospatial processing or in the deployment of the computing chains in the cyberinfrastructure.
+Further, WPS can be easily adapted to enable the dynamic binding of geospatial processes to aid user needs, such as running a standardized algorithm on own or custom data.
+
+The CUDA framework and its binding from Java is implemented in the logic tier which is connected to the data tier and the visualization tier.
+In the logic tier a list of developed CUDA kernels is loaded as a library in the infrastructure. 
+First, a library of CUDA kernels is written in C and then compiled in PTX. 
+%Further, the Parallel Thread Execution (PTX) is a low-level parallel thread execution virtual machine and instruction set architecture, which provides a stable programming model and instruction set for general purpose parallel programming. 
+%Moreover, the PTX instructions are optimized for and translated to native target-architecture instructions. 
+Second, the most fundamental CUDA kernels work as primitives that are combined in the JCUDA layer to build the crafted algorithms  addressing the soil sealing geospatial calculations. 
+The advantage of this type of orchestration is that new models and indicators that may be added in the Soil Monitor toolboxes can be implemented using the same library of CUDA kernels, while little development and coding is required in addition. 
+Accordingly, an example of the pyramidal architecture based on the CUDA kernels is presented in Figure \ref{fig:ccl}, describing the calculation of the discontinuous urban fabric surface ($S_{DUF}$) using a connected component labelling algorithm specifically developed for SMapp. 
+This algorithm is made of 8 CUDA kernels and one thousand lines of code performing the labelling of a 2-bit high resolution imperviousness layer in a 64-bit layer of ordered labels, one for each distinct urban patch.
 Consequently, after identification and labelling, urban patches are sorted and then a threshold (90\%) is applied to extract only patches belonging to the discontinuous urban fabric. 
 These patches are summed up to calculate the overall discontinuous urban fabric surface.
 
-\begin{figure}[t]
+\begin{figure}[t] % FIGURE 03
     % \includegraphics[width,,height=15pc,draft]
     \centerline{\includegraphics[width=500pt]{Figure03.pdf}}
-    \caption{ The $S_{DUF}$ calculation developed in the CUDA framework within Soil Monitor GCI. 
-    The pixel-based elaboration is solved by a connected component labelling algorithm written in CUDA-C. 
-    Elapsed times in the kernel box refer to an image of size $180 \times 10^6$ pixels.} \label{fig:ccl}
+    \caption{ The calculation of the discontinuous urban fabric surface ($S_{DUF}$) developed within Soil Monitor cyberinfrastructure. 
+    The pixel-based calculations are perfomed on the GPU card running a connected component labelling algorithm written in CUDA-C. 
+    The patch-based calculations are performed on the CPU by Java code.
+    The elapsed times in the box of CUDA kernels  refer to an image of size $180 \times 10^6$ pixels.
+    ( DUF = discontinuous urban fabric; CUF = continuous urban fabric)} \label{fig:ccl}
 \end{figure}
 
 
 \subsection{Workflow of the integrated platform}
+It was required to implement a systematic workflow approach in the cyberinfrastructure in order to integrate the fast processing engine based on CUDA kernels with data and with open source geospatial components given by GeoServer (backend) and MapStore (frontend). 
+The systematic workflow implemented in Soil Monitor is designed around the end user and includes three major consecutive steps: the job submission by the user, the query of the job status (e.g. running, completed, failed), and the management of results.
+The execution of each step requires an integration across the three software tiers of the cyberinfrastructure, that is an integration between the data, visualization and processing tiers. 
 
-\toberevised{ Soil Monitor\footnote{\emph{www.soilmonitor.it}} is currently in use and active within the Italian administrative boundaries (Figure \ref{fig:SMapp}). }
-
-\update{We need a more gentle introduction to and description of the processing layer, avoiding it being viewed as a technical report/manual.}
-
-\update{[from the Introduction]}
-This system is designed to address the accountancy of soil sealing through different indicators providing operational support to urban planners, decision makers and multi stakeholders involved in landscape planning and interested in evaluating the impact of soil sealing. 
-This specific contribution required a different approach, the result of which is the Soil Monitor web application. 
-A set of indicators can be calculated in real-time using either Italian administrative levels (NUTS2, NUTS3, and LAU2) or user-drawn Regions of Interest (RoI). 
-Moreover, Soil Monitor uses high resolution layers produced every year by ISPRA (Italian Institute for Environmental Protection and Research) since 2015 for drawing up the yearly soil sealing report in Italy. 
-Thus, owing to the high-performance computing embedded in its cyber infrastructure, Soil Monitor enables real-time geospatial processing while preserving a high spatial detail of the analysis over large areas (till LAU2); this combination of features has an intrinsic vast potential for being used in operational spatial planning. 
-
-\update{[original block:]}\\
-The integration of CUDA kernels, backend (i.e. Java and JCuda), and web interface requires a systematic workflow approach. 
-A typical workflow includes three major steps: job submission, job status query, and results management, where the realization of each step requires integration across the three tiers of the cyberinfrastructure. 
-
-Accordingly, Figure \ref{fig:SMapp} shows an overview of the available toolboxes for analysis, i.e. the toolbox for land use/land cover (LULC) change (Figure \ref{fig:SMapp}, a) and the toolbox for soil sealing indicators (Figure \ref{fig:SMapp}, b).
-The user can build a tailored query owing to the two job submission steps, one for each toolbox. 
-For any soil sealing indicator, the user must select --- according to the following hierarchical order --- the dataset they intend to use (i.e. CORINE land cover or high-resolution imperviousness layer, Figure \ref{fig:SMapp}, b1); the time of the analysis (one year or two years, Figure \ref{fig:SMapp}, b2); the selection of a soil sealing indicator (Figure \ref{fig:SMapp}, b3); the composition of LULC classes optionally (Figure \ref{fig:SMapp}, b4); and finally, the region of interest (Figure \ref{fig:SMapp}, b5). Therefore, in order to ease the definition of a possible multi-polygon RoI, there is an ad hoc accordion pane for the rapid identification and selection of any Italian administrative unit.
-The RoI definition accordion pane is particularly useful because it allows the user to select one or more administrative units at any level of the topological hierarchy (municipality, province, region) and to freely draw a new region of interest directly over the displayed map within SMapp.
-For any subsequent query to the first one, the user can change only the parameters strictly required for the new job submission (e.g. change the indicator or the time) and SMapp will calculate the new indicator given the parameter set just defined. 
+Figure \ref{fig:SMapp} shows an overview of the available toolboxes for analysis, i.e. the toolbox for land use/land cover (LULC) change (Figure \ref{fig:SMapp}, a) and the toolbox for soil sealing (Figure \ref{fig:SMapp}, b).
+The user can build a tailored query owing to a job submission steps, one for each toolbox. 
+For any soil sealing indicator, the user must select --- according to the following hierarchical order --- 
+the dataset they intend to use (i.e. CORINE land cover or high-resolution imperviousness layer, Figure \ref{fig:SMapp}, b1); 
+the time of the analysis (one year or two years, Figure \ref{fig:SMapp}, b2); 
+the selection of a soil sealing indicator (Figure \ref{fig:SMapp}, b3); 
+optionally, the composition of LULC classes (Figure \ref{fig:SMapp}, b4); 
+and finally, the region of interest (Figure \ref{fig:SMapp}, b5). 
+To ease the definition of a possible multi-polygon RoI, there is an ad hoc accordion pane for the rapid identification and selection of any Italian administrative unit.
+The RoI definition accordion pane is particularly useful because it allows the user to select one or more administrative units at any level of the topological hierarchy (municipality, province, region) and to freely draw a new region of interest directly over the map displayed within the graphical user interface.
+For any subsequent query to the first one, the user can change only the parameters strictly required for the new job submission (e.g. change only the indicator used or the time of the analysis) and SMapp will calculate the new indicator given the parameter set just defined. 
 This behaviour was expressly required by end users to facilitate the instantiation of more requests for the purpose of scrutinizing the implementation of executed urban plans.
 
-\subsection{Soil Monitor at work on three Italian case studies \remove[GL]{with validation}}
+\subsection{Soil Monitor at work on three Italian case studies}\label{sec:caseStudies}
 \subsubsection{\reviewer{The case study of land monitoring} \update{at Country scale} }
-In Italy, the monitoring of land take is ensured by the National System for the Protection of the Environment (SNPA) as established by L.132/2016.
+In Italy, the monitoring of land take is accounted for by the National System for the Protection of the Environment (SNPA) as established by L.132/2016.
 Accordingly, the SNPA is coordinated by ISPRA and involves all Italian Environmental Protection Agencies (ARPA-APPA). 
 This monitoring is scheduled in order to have an annually updated picture of the soil sealing evolution (e.g. ISPRA 2016, 2018) and the dynamics of land transformation and urban development, which is done through the production of thematic maps and the development of specific indicators. 
 The L.132/2016 states that the SNPA must ensure such monitoring through monitoring points/networks or earth observation techniques (e.g. Copernicus).
@@ -468,7 +509,8 @@ Furthermore, it is important to highlight that Soil Monitor contributes to the a
 
 A case of use of the platform is given in Figure \ref{fig:caseIT}, where the matrix of land use and land cover changes (LULC) for all of Italy has been analysed and reported. 
 
-\begin{figure}[t]
+%{\setlength\intextsep{0pt}
+\begin{figure}[t] % FIGURE 04
     % \includegraphics[width,,height=15pc,draft]
     \centerline{\includegraphics[width=450pt]{Figure04.pdf}}
     \caption{ The interactive change matrix for Italy between 1954 and 2012.
@@ -484,7 +526,7 @@ Moreover, a pie diagram provides an immediate quantification of the changes by c
 The map depicts the geography of changes providing details till the pixel level; it is possible to observe that the largest changes from complex cultivation patterns to artificial areas occurring at the fringes of earlier urban centres (Figure \ref{fig:caseIT}c). 
 This geospatial analysis, especially when used to compare and analyse LULC changes between more recent years, is a very powerful tool. 
 It provides very detailed geospatial information about the land use classes, which have been affected more by urbanization, and it possibly highlights those LULC classes that have a major risk to be affected by new urbanization in the near future. 
-Further, the new urbanization depicted in Fig. 4c shows that the land use mostly affected by urbanization is the less specialised one, namely \textit{complex cultivation patterns}. 
+Further, the new urbanization depicted in Figure \ref{fig:caseIT}(c) shows that the land use mostly affected by urbanization is the less specialised one, namely \textit{complex cultivation patterns}. 
 Therefore, higher specialization in agriculture would perhaps produce more resilient LULC classes to challenge new land take pressures.
 
 \subsubsection{The case study of territorial plan (PTCP)}
@@ -496,7 +538,7 @@ Moreover, typically, this is performed through the ''territorial plan of coordin
 
 In the last decades, there have been many regional laws and provincial policies in Italy, highlighting the need to mitigate land take, thus guaranteeing the preservation of the landscape and its ecosystem services. 
 In such a framework, the crucial need to support the PTCP planning in order to truly mitigate soil sealing is evident. 
-This government level is farther to the pressures  of pro-growth policies, which are instead strongly grounded in the city and town leading coalitions.
+This government level is farther to the pressures of pro-growth policies, which are instead strongly grounded in the city and town leading coalitions.
 Therefore, Soil Monitor can help implement these regulative ambitions.
 For each Italian province, the platform allows carrying out a detailed analysis of both recent and past urbanization with the production of indices and maps identifying the main soil sealing criticalities within the territory.
 Moreover, Soil Monitor classifies administrative units on the base of urban sprawl, giving the opportunity to the governing body to define targeted and selected geographies of the densification policy.
@@ -505,13 +547,13 @@ A case of use of the platform at the provincial level is reported in Figure \ref
 The combination of the results of the three indicators helps in evaluating the degree of urban dispersion and, for instance, enables differentiating monocentric from polycentric municipalities. 
 As such, Caserta, Napoli, and Salerno --- having a LCPI larger than 70\% --- are monocentric and compacted, while Avellino and Benevento have a clearly polycentric distribution.
 
-\begin{figure}[t]
+\begin{figure}[t] % FIGURE 05
     % \includegraphics[width,,height=15pc,draft]
     \centerline{\includegraphics[width=250pt]{Figure05.pdf}}
     \caption{ Soil Monitor supports the analysis at the level of the territorial plan of coordination (PTCP). } \label{fig:casePROV}
 \end{figure}
 
-In Figure \ref{fig:casePROV}b a quantitative map of the rural fragmentation is given for the Milano province, an area very dynamic with a high per capita income and high residential and infrastructure pressure. 
+In Figure \ref{fig:casePROV}(b) a quantitative map of the rural fragmentation is given for the Milano province, an area very dynamic with a high per capita income and high residential and infrastructure pressure. 
 This map is very important because it enables the quantification of each point in the landscape to the degree of its rural integrity. 
 Accordingly, calculations are performed on-the-fly, enabling the planners to freely decide the radius of their analysis (size of kernel to be processed).
 Generally, a smaller radius (e.g. 100 m) is useful for detailed urban planning at the scale of a specific intervention, such as a new green corridor or a new development.
@@ -530,7 +572,7 @@ Although the PUC has no duration limitations, it is periodically reviewed.
 Moreover, since the PUC is the planning document closer to operational urban activities, it is important for Soil Monitor to be used at this scale. 
 At the municipal scale, Soil Monitor enables performing a scenario analysis by simulating different urban interventions of green corridors by evaluating the effects of such interventions on the rural integrity; the system also allows the visualization and connect planning information with other environmental maps such as landscape constraints.
 
-\begin{figure}[t]
+\begin{figure}[t] % FIGURE 06
     % \includegraphics[width,,height=15pc,draft]
     \centerline{\includegraphics[width=450pt]{Figure06.pdf}}
     \caption{ Soil Monitor supports the analysis at the level of the municipal urbanization plan (PUC). } \label{fig:caseCOM}
@@ -542,56 +584,97 @@ Therefore, the user can get a quantification of the evolutive trajectories that 
 In the example shown in Figure \ref{fig:caseCOM}(a, b), the amount and the geolocation of the consumption exerted by artificial surfaces is clear, above all, regarding vineyards, fruit trees, and olive orchards. 
 This interpretation about the LULC evolution is accompanied by the recognition that part of the land take was very close (if not inside) to the protected areas (Figure \ref{fig:caseCOM}c) of the Vesuvius's slopes, thereby confirming the very high pressure of urbanization not well managed by local authorities.
 Accordingly, the model of urban development was computed in the same municipality of Ercolano against other most populated cities in the Napoli province. 
-Figure \ref{fig:caseCOM}d shows the population size and density (the left side of the table) and the indicators of model of urban development (LCPI, RMPS, and ED on the right side of the table), depicting the main urban trends in the Napoli province. 
+Figure \ref{fig:caseCOM}(d) shows the population size and density (the left side of the table) and the indicators of model of urban development (LCPI, RMPS, and ED on the right side of the table), depicting the main urban trends in the Napoli province. 
 The results reported in Figure \ref{fig:caseCOM} are limited examples of the information that can possibly be achieved using Soil Monitor, which can be profitably used to enhance the definition and implementation of plans at the municipality scale (PUC in Italy). 
 This finding becomes much more important considering Soil Monitor is operational over the entire Italian territory with more than eight thousand municipalities.
 
 \section{Discussion}
 
-\subsection{ \toberevised{Design | remove paragraph title} }
+\subsection{ \toberevised{Design | remove paragraph title | keep here or move to CONCLUSIONS} }
 The Soil Monitor spatial decision support system and visualization tools required to embody some crucial design items. 
 Although the first version of the implementation was carried out without great involvement of stakeholders, because of money, time, and manpower constraints, at least two middle phases of consultation managed to apply modifications to the SMapp design and functionality. 
 These consultations were performed with INU (National Institute for Urban planning) and ISPRA, which are the most important spatial planners' association in Italy along with being the public authority competent in monitoring land degradation and soil sealing, respectively.
+Accordingly, after this discussion four major design considerations were included in Soil Monitor.
+First, Soil Monitor uses national scale, standardized and high resolution soil imperviousness layers.
+It avoids subjective soil sealing classification and very coarse soil sealing quantification as those using only the Corine Land Cover layers.
+Second, Soil Monitor uses fully transparent processing engines in order to provide the user a complete understanding of the data output.
+Third, Soil Monitor uses open-source approaches to be better tuned to FAIR (Findability, Accessibility, Interoperability, and Reusability) data.
+Last but not least, Soil Monitor is capable to address high demanding computing needs encapsulating soil sealing models and indicators using a high performance computing approach.
+Fast calculations allowed over the platform can speed up the decision-making process, such as a scenario analysis that, for instance, computes --- through the web and on-the-fly --- metrics related to the change of rural fragmentation after a new urban \toberevised{setting} is applied.
+Furthermore, fast calculations were fundamental to manage both a multi-domain RoI definition and multi-user soil sealing platform.
+Consequently, the choice was for a parallel computing platform based on graphics cards (GPU computing) using the NVIDIA hardware and software framework called CUDA (Compute Unified Device Architecture).
+This required the implementation of stand-alone CUDA-C codes from scratch tailored to a GPU-based geospatial processing.
+%Soil Monitor performs GPU computing thanks to the Java-JCuda-CUDA chain (described in section \ref{sec:logicTier}) which wraps the CUDA kernels, after compiling the CUDA-C source code in PTX executables.
+The limitation of developing new code from scratch is overcome by high degree of code reusability, lower power consumption and higher computing scalability of GPU technologies with respect to standard CPU approaches.
+%In addition, the high potential evolution of GPU technologies with respect to standard CPU approaches in the cloud too
+%, including the continual increase in the availability of these resources over the cloud. 
 
-Accordingly, the early stage design considerations included (i) the use of national scale standardized soil imperviousness high resolution layers, which is crucial since it avoids subjective soil sealing classification and very coarse soil sealing quantification as those using only the Corine Land Cover dataset; (ii) the use of fully transparent processing engines in order to provide the user a complete understanding of the data output; (iii) the use of open-source approaches to better tune this system to FAIR (Findability, Accessibility, Interoperability, and Reusability) data ; (iv) addressing high demanding computing needs.
+%\update{[from the Introduction]}
+This system is designed to address the accountancy of soil sealing through different indicators providing operational support to urban planners, decision makers and multi stakeholders involved in landscape planning and interested in evaluating the impact of soil sealing. 
+This specific contribution required a different approach, the result of which is the Soil Monitor geospatial cyberinfrastructure. 
+A set of indicators can be calculated in real-time using either Italian administrative levels (NUTS2, NUTS3, and LAU2) or user-drawn Regions of Interest (RoI). 
+Moreover, Soil Monitor uses high resolution layers produced every year by ISPRA (Italian Institute for Environmental Protection and Research) since 2015 for drawing up their yearly soil sealing report in Italy. 
+Thus, owing to the high-performance computing embedded in its cyber infrastructure, Soil Monitor enables real-time geospatial processing while preserving a high spatial detail of the analysis over large areas (till LAU2); this combination of features has an intrinsic vast potential for being used in operational spatial planning as testified by the three case studies presented in section \ref{sec:caseStudies}. 
 
-The last issue mentioned above is critical because the wrapping of some algorithms in our platform is rather challenging, such as the scenario analysis that, for instance, computes --- through the web and on-the-fly --- metrics related to the change of rural fragmentation after a new urban setting is applied.
-Moreover, encapsulating soil sealing models and indicators using an HPC (High Performance Computing) approach to both allow fast calculations and speed up the decision-making process. Consequently, the choice was for (i) a parallel computing platform based on graphics cards (GPU computing) using the NVIDIA hardware and software framework called CUDA (Compute Unified Device Architecture); (ii) implementing stand-alone CUDA-C codes allowing geospatial GPU based processing; (iii) wrapping the PTX CUDA kernels, after compiling CUDA-C source code, through the JAI-JCuda-CUDA chain. This specific choice is critical considering the high potential evolution of GPU technologies with respect to standard CPU approaches, also including the continual increase in the availability of these resources over the cloud. 
-Furthermore, it was fundamental to manage both a multi-domain RoI definition and multi-user soil sealing platform.
+To author knowledge, the
+integration of high performance computing by means of the CUDA framework within web based geospatial cyberinfrastructures is absolutely new.
+This is an important result that must be emphasized here not for the technological advancement itself, but because this technology is firstly applied to soil sealing and land degradation issues and because it changes the way in which different stakeholders (citizens, technicians, professionals, policy makers, etc.) can get informed about and measure soil sealing with agreed, certified and standard methods.
+
+\subsection{ \toberevised{Weakness points | remove paragraph title | moved from CONCLUSIONS} }
+Despite the huge endeavour spent on the logic tier to have GPU computing on board of Soil Sealing, the platform shows some important limitations caused by constraints in the data tier.
+% first limitation due to data tier:
+One main limitation is the lack of soil information underpinning the analysis in Soil Monitor, such as the lack of different qualities of soils and their spatial distribution in the scenario analysis.
+To smoothly mitigate the fundamental shortcoming of not having soil information and to help discriminating between the different land qualities vulnerable to land take, SMapp shows (via WMS protocol) soil grids at 250m spatial resolution produced by ISRIC.
+Attention should be drawn to the low accuracy of this grids with respect to the scale and detail of the land take analysis available in Soil Monitor.
+\toberevised{
+% second limitation due to data tier:
+Soil Monitor can easily highlight inconsistencies in the base data (i.e. imperviousness layers by ISPRA) used in the analysis.
+Indeed, it is possible to get artefacts in the results given by a misclassification of features over time with impervious covers unrealistically fluctuating over time or by a non-classification of imperviousness mostly in less urbanized or rural areas with evident underestimation of the land degradation process.\\
+Soil Monitor provides basic \textit{what-if} modelling and scenario analysis building and it's author belief that further effort should be performed to make the tools fully operational, mainly because of the need to provide real time answers.
+}
+
+\subsection{ \toberevised{New points | remove paragraph title}}
+ can people monitor and measure soil sealing or land take directly? Soil Monitor would give this opportunity to everyone interested\ldots
+
+
 
 \section{Conclusions}
-Soil sealing mitigation implemented through best land spatial planning practices is a very virtuous goal, but it is also one of the greatest challenges of the modern world. 
+Soil sealing mitigation implemented through best practices in spatial land planning is a very virtuous goal, but it is also one of the greatest challenges of the modern world. 
 In fact, high quantity of information can only be accessed through satellite and drones, etc. concerning, for example, the agricultural, forestry, environmental, and spatial planning sectors is simply not sufficient to face the complexity of this challenge.
 
-This work shows that starting from the problem statement in a specific research domain, it is feasible to combine recent achievements in terms of data, models, indicators, WebGIS, and HPC technologies to produce an integrated geospatial cyberinfrastructure available on the web, aiming to account and mitigate the continual soil sealing worldwide. 
-The proposed application called SMapp, which is freely accessible via an internet browser without the need to install any application or plugin on the local computer, aims to demonstrate that this approach is feasible. 
+This work shows that starting from the problem statement in a specific research domain, it is feasible to combine recent achievements in terms of data, models, indicators, WebGIS, and HPC technologies to produce an integrated geospatial cyberinfrastructure available on the web, aiming to account and mitigate the continual soil sealing phenomenon worldwide. 
+The proposed application called SMapp, which is freely accessible via an internet browser without the need to install any application or plugin on the local computer, aims to demonstrate that this approach is feasible, even though a more intuitive and easy to use dashboard is required.
 Moreover, it takes advantage of the combination of updated high spatial resolution data on imperviousness available in Italy owing to ISPRA with tailored codes written in CUDA to gain embarrassingly parallel applications, thereby enabling a highly detailed analysis over large geographical extents.
 Additionally, the combination of WebGIS with GPU computing running on-the-fly geospatial processing puts Soil Monitor at the fringe of research and development. 
-Further, the GPU parallelism model enables a higher speedup than the CPU counterpart, at both a lower cost and a lower power consumption, with the main limitation being the requirement to design and write new codes from scratch.
+Further, the GPU parallelism model enables a higher speedup than the CPU counterpart, at both a lower cost and a lower power consumption, with the main limitation being the requirement to design and \toberevised{write new codes from scratch (EXPLAIN BETTER, IT WAS NOT CLEAR TO REVIEWER)}.
+
+\toberevised{
+\ldots only if we invest on detailed soil mapping at Country scale, we can monitor and contrast the soil sealing\\
+\ldots we think that Country and also EU administrative bodies should adopt a technology such as the one presented here\\
+}
 
 Nevertheless, the proposed platform still remains a prototype from research that can be used for any area of the Italian territory. 
 Subsequently, it can be seen as a democratic tool for creating reports that can catch the evolution of land use trajectories and connected land degradation interpretations about the ongoing land degradation processes.
 
-\toberevised{[DELETE::reviewer\#2, but try to reuse in discussion]}\\
-\reviewer{
-Despite the above positive statements, it is also essential to underline that the construction, maintenance, and updating of the infrastructure requires the following:
-\begin{enumerate}[label=(\roman*)]
-    \item Above all, a more comprehensive and detailed data on soils which, at least in Italy, are still missing to account for land degradation surface quantity. 
-    This information is critical to discriminate between the different land qualities vulnerable to land take. 
-    As such, we put soil grids by ISRIC via WMS to smoothly mitigate this fundamental shortcoming, considering the low accuracy of this grid with respect to the scale and detail of the land take accountancy.
-    \item A strong scientific effort to find the most suitable and reliable approaches for each application considering the available data.
-    \item A strong effort to integrate different types of knowledge and technology to develop and implement web applications, according to the use of open-source components such as GeoServer and MapStore.
-    \item Strong technical work to make the tools fully operational, mainly because of the need to provide real time answers (e.g. \textit{what-if} modelling and scenario analysis).
-    \item The need for the constant maintenance of data and applications in order to keep the platform constantly and consistently operational and not obsolete.
-    \item To reinforce the interoperability with data shared by other official providers. 
-    The more data and thematic layers available, the higher strength of deductions and interpretations performed during the analysis.
-    \item A more intuitive dashboard to simplify the user interaction with the visualization layer.
-    Indeed, because of the money constraints during the development, Soil Monitor does not ensure an easy and intuitive navigation during the job submission step. 
-    Nevertheless, we recognized the importance of a future effort to enhance fruition.
-\end{enumerate}
-}
+%\toberevised{[DELETE::reviewer\#2, but try to reuse in discussion]}\\
+%\reviewer{
+%Despite the above positive statements, it is also essential to underline that the construction, maintenance, and updating of the infrastructure requires the following:
+%\begin{enumerate}[label=(\roman*)]
+%    \item Above all, a more comprehensive and detailed data on soils which, at least in Italy, are still missing to account for land degradation surface quantity. 
+%    This information is critical to discriminate between the different land qualities vulnerable to land take. 
+%    As such, we put soil grids by ISRIC via WMS to smoothly mitigate this fundamental shortcoming, considering the low accuracy of this grid with respect to the scale and detail of the land take accountancy.
+%    \item A strong scientific effort to find the most suitable and reliable approaches for each application considering the available data.
+%    \item A strong effort to integrate different types of knowledge and technology to develop and implement web applications, according to the use of open-source components such as GeoServer and MapStore.
+%    \item Strong technical work to make the tools fully operational, mainly because of the need to provide real time answers (e.g. \textit{what-if} modelling and scenario analysis).
+%    \item The need for the constant maintenance of data and applications in order to keep the platform constantly and consistently operational and not obsolete.
+%    \item To reinforce the interoperability with data shared by other official providers. 
+%    The more data and thematic layers available, the higher strength of deductions and interpretations performed during the analysis.
+%    \item A more intuitive dashboard to simplify the user interaction with the visualization layer.
+%    Indeed, because of the money constraints during the development, Soil Monitor does not ensure an easy and intuitive navigation during the job submission step. 
+%    Nevertheless, we recognized the importance of a future effort to enhance fruition.
+%\end{enumerate}
+%}
 
-Soil Monitor, by placing emphasis on landscapes, seeks to reduce the gap between policy and implementation being able to quantify and visualize (with the change in time of) the state of the land system.
 
 \section*{ORCID}
 Giuliano Langella \href{https://orcid.org/0000-0001-7210-0906}{ {\orcidicon{0000-0001-7210-0906}}\hspace{1.0mm} orcid.org/0000-0001-7210-0906}
