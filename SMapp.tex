@@ -3,8 +3,8 @@
 
 % Giuliano
 \usepackage{graphicx}
-%\graphicspath{ {Figures/} }
-\graphicspath{ {daMileti/} }
+\graphicspath{ {Figures/} }
+%\graphicspath{ {daMileti/} }
 \usepackage{enumitem} % to have (i) bulletts
 % to add trackchanges facilities to the manuscript:
 %   > http://trackchanges.sourceforge.net
@@ -118,32 +118,28 @@ T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
 
 
 \abstract[ Abstract ]{
-This work propose a new type of web-based geospatial Decision Support System --- Soil Monitor application (www.soilmonitor.it), developed on top of open-source Geospatial Cyber-Infrastructures (GCI) --- which provides a multidisciplinary operational tool useful for a multi- stakeholder community to challenge soil sealing.
-Different technological and technical features of Soil Monitor are presented and discussed with particular reference to the combination of WebGIS with on-the-fly geospatial processing based on GPU computing, specifically designed, developed, and embedded in the presented GCI allowing real-time requests.
-In addition, we present three quantitative analysis about soil sealing at three different scales (national, province and municipality).
-Examples of soil sealing metrics are presented, such as an interactive Land Use and Land Cover (LULC) change matrix and the map of rural fragmentation.
-The study at national level in the period 1954-2012 illustrated that the type of land use strongly affected soil sealing dynamics.
-Indeed, in terms of transformations towards sealed soils, the class \textit{complex cultivation pattern} resulted the most fragile land use while \textit{forests} resulted the most resilient one. % to the impact of soil sealing.
+% === EXTENDED VERSION ===
+%This work propose a new type of web-based geospatial decision Support System --- Soil Monitor application (www.soilmonitor.it), developed on top of open-source Geospatial Cyber-Infrastructures (GCI) --- which provides a multidisciplinary operational tool useful for a multi- stakeholder community to challenge soil sealing.
+%Different technological and technical features of Soil Monitor are presented and discussed with particular reference to the combination of WebGIS with on-the-fly geospatial processing based on GPU computing, specifically designed, developed, and embedded in the presented GCI allowing real-time requests.
+%In addition, we present three quantitative analysis about soil sealing at three different scales (national, province and municipality).
+%Examples of soil sealing metrics are presented, such as an interactive Land Use and Land Cover (LULC) change matrix and the map of rural fragmentation.
+%The study at national level in the period 1954-2012 illustrated that the type of land use strongly affected soil sealing dynamics.
+%Indeed, in terms of transformations towards sealed soils, the class \textit{complex cultivation pattern} resulted the most fragile land use while \textit{forests} resulted the most resilient one.
+%The study at province level illustrated the key importance of having on-the-fly the map of rural fragmentation for any Italian province.
+%This map --- quantifying the integrity of the rural territory at each geospatial location --- enables to better locate both new green corridors or new urban developments lowering the impact over the rural environment.
+%The study at municipality level --- performed within the province of Napoli --- demonstrated the importance of quantifying a pool of spatial planning indicators towards a better landscape planning.
+%Indeed, it clearly illustrated that (i) the largest urban dispersion occurs in hilly touristic municipalities close to the sea, (ii) the use of the pool of indicators enable to highlight rural sites where the increase in soil sealing is not justified by population growth.
+%As a result, Soil Monitor is deemed useful both to support decision making at different spatial scales (from national to municipality level) and to raise awareness in people, professionals, and experts of other fields.
+% === VERSION WITH 250 WORDS ===
+This work propose a new type of web-based geospatial decision support system --- called Soil Monitor --- which provides a multidisciplinary operational tool useful for a multi-stakeholder community to challenge soil sealing.
+Different technological and technical features of Soil Monitor are presented and discussed with particular reference to the combination of WebGIS with on-the-fly geospatial processing based on GPU computing, specifically designed to allow real-time requests.
+In addition, we present three quantitative analysis about soil sealing at three different scales.
+The study at national level illustrated that the type of land use strongly affected soil sealing dynamics.
+Indeed, the class \textit{complex cultivation pattern} resulted the most fragile land use while \textit{forests} resulted the most resilient one.
 The study at province level illustrated the key importance of having on-the-fly the map of rural fragmentation for any Italian province.
-This map --- quantifying the integrity of the rural territory at each geospatial location --- enables to better locate both new green corridors or new urban developments lowering the impact over the rural environment.
-The study at municipality level --- performed within the province of Napoli --- demonstrated the importance of quantifying a pool of spatial planning indicators towards a better landscape planning.
-Indeed, it clearly illustrated that (i) the largest urban dispersion occurs in hilly touristic municipalities close to the sea, (ii) the use of the pool of indicators enable to highlight rural sites where the increase in soil sealing is not justified by population growth.
-As a result, Soil Monitor is deemed useful both to support decision making at different spatial scales (from national to municipality level) and to raise awareness in people, professionals, and experts of other fields.
-
-% === OLD ===
-%\reviewer{["no quantitative result" $\Longrightarrow$ we can claim both "qualitative" and "quantitative" results]}
-%This work propose
-%aims \toberevised{to show \reviewer{[avoid of "show" / "demonstration"]}} that 
-%a new type of web-based geospatial Decision Support System --- Soil Monitor application (SMapp, www.soilmonitor.it), developed on top of open-source Geospatial Cyber-Infrastructures (GCI) --- which provides a multidisciplinary operational tool useful for a multi-stakeholder community to challenge soil sealing.
-%Different technological and technical features of SMapp are presented and discussed with particular reference to the combination of WebGIS with on-the-fly geospatial processing based on GPU computing, specifically designed, developed, and embedded in the presented GCI allowing real-time requests.
-%Soil Monitor is shown as operational in three different case studies, which are also different scales where policy making and decisions about measures to tackle land take are entangled, at least in Italy.
-%Accordingly, examples of soil sealing indicators are presented, such as an interactive Land Use and Land Cover (LULC) matrix and the map of rural fragmentation.
-%\reviewer{("no quantative results": PUT HERE A SUMMARY)}
-%As a result, SMapp models are deemed useful to 
-%(i) support decision making, 
-%(ii) raise awareness in people, professionals, and experts of other fields, 
-%and (iii) contrastingly put current law in force and actual land take situation owing to multitemporal datasets as an ex post control tool.
-%The pros and cons are discussed with special emphasis on the limits (new codes from scratch) and benefits (low-cost, low-energy fast computing) from the use of codes and primitives for land degradation written in CUDA (Compute Unified Device Architecture): a library to maintain and develop further in order to success in facing land take, according to the zero land take deadlines.
+This map --- quantifying the integrity of the rural territory --- enables to better locate both new green corridors or new urban development lowering the impact over the rural environment.
+The study at municipality level (Napoli) demonstrated the importance of quantifying a pool of spatial planning indicators and illustrated that (i) the largest urban dispersion occurs in hilly touristic municipalities close to the sea, (ii) the increase in soil sealing in rural sites is not justified by population growth.
+As a result, Soil Monitor is deemed useful both to support decision making at different spatial scales and to raise awareness in people, professionals, and experts of other fields.
 }
 
 \keywords{soil sealing, geospatial decision support system, CUDA, GPU computing, urban planning}
@@ -229,17 +225,19 @@ a new type of geospatial decision support system --- a web-based decision suppor
 %\subsection{System architecture}
 %\subsection{ Development of Soil Monitor }
 %Soil Monitor\footnote{\emph{www.soilmonitor.it}} is currently in use and active within the Italian administrative boundaries (Figure \ref{fig:SMapp}).
-Soil Monitor is a decision support system which enables users to interact directly with the geospatial data on the map via the web (Figure \ref{fig:SMapp}).
+Soil Monitor (www.soilmonitor.it) is a decision support system which enables users to interact directly with the geospatial data on the map via the web (Figure \ref{fig:SMapp}).
 %The Soil Monitor application (SMapp) 
 It is built on free and open-source geospatial libraries and programs specifically designed to create, manage, and share different types of geospatial information in a rather safe, simple, and intuitive way.
 In particular, it is deployed on the dual infrastructure GeoServer and MapStore, the both of which are mainly developed and maintained worldwide by GeoSolutions.
 
 \begin{figure}[t] % FIGURE 01
     % \includegraphics[width,,height=15pc,draft]
-    \centerline{\includegraphics[width=500pt]{daMileti/01_piattaforma.pdf}}
+    \centerline{\includegraphics[width=500pt]{01_piattaforma.pdf}}
     \caption{Soil Monitor web application.
              (a) Exemplification of the dashboard with main panes (back dashed boxes), with reference to specific accordion panes (red annotations 1, 2, 3) described in (b). 
-             (b) The user can build a tailored query owing to the job submission steps (section \ref{sec:jobsubmission}) thanks to two distinct accordion panes, one designed for the LULC change analysis (red 1) and another one dedicated to the soil sealing quantitative monitoring (red 2). A dedicated and advanced RoI building is available (red 14 and 25). Geospatial calculations can be distributed on GPU cards owing to a tailored CUDA-C library embedded in Soil Monitor (red 3). } \label{fig:SMapp}
+             (b) The user can build a tailored query owing to the job submission steps (section \ref{sec:jobsubmission}) thanks to two distinct accordion panes, one designed for the LULC change analysis (red 1) and another one dedicated to the soil sealing quantitative monitoring (red 2). A dedicated and advanced RoI building is available (red 14 and 25). Geospatial calculations can be distributed on GPU cards owing to a tailored CUDA-C library embedded in Soil Monitor (red 3).
+             (LULC: Land Use and Land Cover; RoI: Region of Interest; CUDA: Compute Unified Device Architecture)
+            } \label{fig:SMapp}
 \end{figure}
 
 Soil Monitor is based on a three-tier logical architecture (Figure\ref{fig:GCI}) with separated processes made by 
@@ -253,7 +251,7 @@ the \textit{logic tier} that controls the functionality of the application by pe
 \begin{figure}[t] % FIGURE 02
     % \includegraphics[width,,height=15pc,draft]
     % trim=left bottom right top, trim=0 0 0 50,clip,
-    \centerline{\includegraphics[width=500pt]{daMileti/02_infrastruttura.pdf}}
+    \centerline{\includegraphics[width=500pt]{02_infrastruttura.pdf}}
     \caption{Main tiers, workflows, and technological components of the geospatial cyber-infrastructure behind Soil Monitor.
     The operating mode of the platform is sketched showing the flow of data that feeds different server functions (e.g. models), which, in turn, produces a set of services that can be finally accessed by the dashboard.
     (GUI: Graphical User Interface; RoI: Region of Interest)
@@ -266,13 +264,13 @@ the \textit{logic tier} that controls the functionality of the application by pe
 \subsection{Data (data tier) }
 %\update{[materials]}}
 \label{sec:dataTier}
-The Open Geospatial Consortium (OGC), which aims to develop community-consensus open geospatial standards, provides a family of enabling technologies for sharing geospatial data and analytical capabilities on a distributed network. 
-Data sharing (interoperability) in Soil Monitor is supported both in input --- to visualize data coming from remote services (e.g. those provided by ISPRA or other national level administrative bodies) --- and in output to provide different data services such as WMS (Web Mapping Service, for serving georeferenced map images over the internet) and WFS (Web Feature Service, which supports the vector data model). % to allow a client visualization of output images produced by the logic tier.
+The Open Geospatial Consortium, which aims to develop community-consensus open geospatial standards, provides a family of enabling technologies for sharing geospatial data and analytical capabilities on a distributed network. 
+Data sharing (interoperability) in Soil Monitor is supported both in input --- to visualize data coming from remote services (e.g. those provided by ISPRA (Italian Institute for Environmental Protection and Research) or other national level administrative bodies) --- and in output to provide different data services such as WMS (Web Mapping Service, for serving georeferenced map images over the internet) and WFS (Web Feature Service, which supports the vector data model). % to allow a client visualization of output images produced by the logic tier.
 These web services are automatically appended to the output images produced by the logic tier %new geospatial data %calculated by the CUDA engine 
 to enable the visualization of results both locally within Soil Monitor, and remotely, for instance, within desktop GIS software environments.
 Indeed, after ingestion in GeoServer, data become available for visualization and calculation purposes for the whole Italian territory Soil Monitor stores as follows:
 \begin{itemize}
-    \item The land use and land cover map in the period of 1956-60 produced by the Italian Touring Club in collaboration with National Council of Research, CNR (map of land use in Italy, scale 1: 200.000).
+    \item The Land Use and Land Cover (LULC) map in the period of 1956-60 produced by the Italian Touring Club in collaboration with National Council of Research, CNR (map of land use in Italy, scale 1: 200.000).
     \item The CORINE Land Cover (CLC) is a valuable source of information about land use and land cover, produced at the European level since the '90s and updated regularly (originally coordinated by the European Commission and the European Environmental Agency; now included in the Copernicus framework).
     CLC vector data are produced by photointerpretation of satellite images, with a minimum mapping unit of 25 ha and a classification system organized in three hierarchical levels of thematic detail: level 1 with 5 land use and land cover classes, level 2 with 15 land use and land cover classes, and level 3 with 43 land use and land cover classes. 
     In Soil Monitor, the raster version of CLC with a spatial resolution of 100 m is available for the years 1990, 2000, 2006, 2012, and 2018. Considering the homogeneity over the entire Europe and the constant update, CLC is largely used for spatial analysis, land cover change assessment, and policy making.
@@ -280,7 +278,7 @@ Indeed, after ingestion in GeoServer, data become available for visualization an
     \item The administrative units: Italian administrative data are provided by the Italian institute of statistics (ISTAT). 
     These data represent the administrative units (also NUTS) in vector format.
     \item The population: population data are provided at the Municipal level by ISTAT, which periodically collects census data and updates this information every year. 
-    \item The digital soil grids: Predictions on key soil properties performed globally at 250 m spatial resolution by ISRIC\footnote{available at http://data.isric.org/geoserver/sg250m/wms}. This is an example of OGC compliant interoperability based on WMS which is used as input source of georederenced map images in Soil Monitor.
+    \item The digital soil grids: Predictions on key soil properties performed globally at 250 m spatial resolution by ISRIC\footnote{available at http://data.isric.org/geoserver/sg250m/wms}. This is an example of Open Geospatial Consortium compliant interoperability based on WMS which is used as input source of georederenced map images in Soil Monitor.
 \end{itemize}
 
 \begin{table}
@@ -459,13 +457,13 @@ Some calculations may be very demanding since they rely on high resolution grids
 These cases may not manage to return answers in real-time or near-real-time
 %for relatively large geographical extents
 , which explains why 
-(i) calculations are instantiated asynchronously in the geospatial cyberinfrastructure, and
+(i) calculations are instantiated asynchronously in the geospatial cyber-infrastructure, and
 (ii) metrics are implemented in GPU computing using the CUDA framework by NVIDIA.
-The asynchronous instantiation of calculations in the cyberinfrastructure means that a a request can be submitted without waiting for previous ones to be finished.
+The asynchronous instantiation of calculations in the cyber-infrastructure means that a a request can be submitted without waiting for previous ones to be finished.
 This allows both the multi-user concurrency and the submission of as many requests as needed by a single user to address own analysis.
 The user can close the web page and then navigate back to the Soil Monitor workspace to find the results ready for visualization and interpretation.
 
-The second characteristic of the geoprocessing engine is the implementation of most of the metrics showed in Table \ref{tab:SMappToolbox} by means of the CUDA C programming language.
+The second characteristic of the geoprocessing engine is the implementation of most of the metrics showed in Table \ref{tab:SMappToolbox} by means of the CUDA-C programming language.
 %\toberevised{Each soil sealing metric is made of more CUDA kernels, the assemblage of which manage the production of the required output data.}
 The CUDA code and its binding from Java is implemented in the logic tier in which %is connected to the data tier and the visualization tier.
 %In the logic tier a 
@@ -495,9 +493,9 @@ Finally, the map images can be visualised over the Soil Monitor web application 
 
 \subsection{Job submission: how to run metrics and perform quantitative analysis}
 \label{sec:jobsubmission}
-It was required to implement a systematic workflow approach in the cyberinfrastructure in order to integrate the fast geoprocessing engine based on CUDA kernels with both data and open source geospatial components given by GeoServer (backend) and MapStore (frontend). 
+It was required to implement a systematic workflow approach in the cyber-infrastructure in order to integrate the fast geoprocessing engine based on CUDA kernels with both data and open source geospatial components given by GeoServer (backend) and MapStore (frontend). 
 The systematic workflow implemented in Soil Monitor is designed around the end user and includes three major consecutive steps: job submission, the query of job status (e.g. running, completed, failed), and the management of results.
-The execution of each step requires a close integration of the three software tiers in the cyberinfrastructure, that is a strong connection between the data, visualization and logic tiers. 
+The execution of each step requires a close integration of the three software tiers in the cyber-infrastructure, that is a strong connection between the data, visualization and logic tiers. 
 
 Figure \ref{fig:SMapp} shows an overview of the available toolboxes for analysis, that is the toolbox for land use/cover change (Figure \ref{fig:SMapp}, red annotation 1) and the toolbox for soil sealing (Figure \ref{fig:SMapp}, red annotation 2).
 The user can build a tailored query owing to a job submission step, one for each toolbox, separately. 
@@ -548,7 +546,7 @@ Therefore, in our case it performs the labelling of the 2-bit imperviousness lay
 The discontinuous urban fabric is assigned to areas generally lower than 25 ha in which artificially surfaced areas are associated with vegetated areas and bare soil.
 For this reason after identification and labelling, urban patches are sorted and then a threshold (e.g. 90\%) is applied to extract only patches below the selected threshold (i.e. belonging to the discontinuous urban fabric). % The threshold was is hard coded in Soil Monitor and was selected in agreement with urban planners.%, even though the parameter could be adjusted by the end user if included in the graphical user interface / accordion pane fo the job submission.
 These patches are summed to calculate the overall discontinuous urban fabric surface ($S_{DUF})$.
-The results of this implementation are showed in section \ref{sec:resFRAG_DUF}.
+The results of this implementation are showed in section \ref{sec:resFRAG_DUF} according to the calculation of three different metrics.
 
 
 \section{Validation of geoprocessing engine}\label{sec:validation} % \update{[here or results?]} } 
@@ -557,7 +555,7 @@ The results of this implementation are showed in section \ref{sec:resFRAG_DUF}.
 %soil sealing metrics outside the web application.
 During the implementation of the 
 %Soil Monitor 
-cyberinfrastructure we carried out a systematic testing procedure by means of web processing services as explained in section \ref{sec:logicTier}.
+cyber-infrastructure we carried out a systematic testing procedure by means of web processing services as explained in section \ref{sec:logicTier}.
 The WPS inferface was used to test and validate the fast geoprocessing engine because we could run from hundreds to thousands times calculations without the tedious infilling of the accordion panes over the graphical user interface to submit more and more requests.
 POST requests are generally submitted from within the Unix terminal but for validation purpose they were submitted from within MatLab scripts. %, which were specifically designed to validate the geoprocessing engine.
 To validate each Soil Monitor model, we collected and compared the results returned by the following three independent computing environments:
@@ -565,14 +563,14 @@ To validate each Soil Monitor model, we collected and compared the results retur
     \item Running the stand-alone executable (EXE) compiled from the source CUDA-C code (Figure \ref{fig:GCI} logic tier).
     The source high performance computing code written in CUDA-C can be compiled to get either a stand-alone executable (EXE) or the executable file (PTX) embedded in Soil Monitor.
     In this step we run the stand alone executable passing as input the same data and parameters used in the other computing environments.
-    This computing environment is used to validates the goodness of the high performance computing algorithm implemented in CUDA-C.
+    This computing environment is used to validate the goodness of the high performance computing algorithm implemented in CUDA-C.
     \item Running the WPS as explained above.
-    It is based on the Java/JCUDA/CUDA chain which executes the CUDA kernels compiled in the PTX files. This computing environment is crucial to validate together the forward high performance computing step and the backward geoprocessing step embedded in the Soil Monitor geospatial cyberinfrastructure (see section \ref{sec:logicTier} for the two steps). 
+    It is based on the Java/JCUDA/CUDA chain which executes the CUDA kernels compiled in the PTX files. This computing environment is crucial to validate together the forward high performance computing step and the backward geoprocessing step embedded in the geospatial cyber-infrastructure of Soil Monitor (see section \ref{sec:logicTier} for the two steps). 
     \item Running a MatLab code which implements the same geospatial processing but with a different algorithm.
 \end{itemize}
 
 The validation ends after a comparison of results coming from the three environments which enables to check for both speed performance and accuracy. 
-This procedure was used as a standard during the development stage in order to test for inaccuracies in either the CUDA algorithms targeted to geospatial processing or in the deployment of the Java/JCUDA/CUDA computing chains in the cyberinfrastructure.
+This procedure was used as a standard during the development stage in order to test for inaccuracies in either the CUDA algorithms targeted to geospatial processing or in the deployment of the Java/JCUDA/CUDA computing chains in the cyber-infrastructure.
 %Further, WPS can be easily adapted to enable the dynamic binding of geospatial processes to aid user needs, such as running a standardized algorithm on own or custom data.
 
 \section{ Results and Discussion } % \toberevised{Results} | remove or describe the fragmentation and DUF} }
@@ -603,11 +601,12 @@ The discontinuous urban fabric surface is calculated if the user requests the ur
 Apparently, the calculation of these two indicators is very simple since they are computed as the ratio between 
 % the discontinuous urban fabric surface 
 $S_{DUF}$ and either the total urban area ( $S_{UT}$ in urban sprawl) or the number of urban patches within discontinuous urban fabric ($N_{DUF}$ in RMPS).
-However, as demonstrated in section \ref{sec:mmDUF}, ten CUDA kernels are used to uniquely label each urban patch and determine the consistency of each urban patch (i.e. the number of pixels within it).
+However, as demonstrated in section \ref{sec:mmDUF}, ten CUDA kernels are used to uniquely label each urban patch and then determine the number of pixels within it.
 %its consistency in terms of the number of adjacent pixels within each patch.
-This is one of the most powerful implementations available in the infrastructure, as a very small elapsed time is required to complete the calculation over a very large region of interest (Figure \ref{fig:ccl}, 10000 x 18000 pixels).
-The $S_{DUF}$  is the final outcome depicted in figure \ref{fig:ccl} which is used to calculate two metrics included in Soil Monitor, that is urban sprawl and RMPS.
-However, it shows the advantage of having a library of CUDA kernel implemented in Soil Monitor, because the procedure till the sort of patch sizes can be used to calculate the size of the largest urban patch ($S_{max}$), which is used to measure the largest class patch index (Table \ref{tab:SMappToolbox}, ID=8).
+This is one of the most powerful implementations available in the infrastructure, as a very small elapsed time (3.7 seconds) is required to complete the calculation over a very large region of interest (10000 x 18000 pixels, with 20m pixel size).
+The $S_{DUF}$ is the final outcome depicted in figure \ref{fig:ccl} and is used to calculate the two metrics urban sprawl and RMPS.
+As a final remark, it is highlighted the advantage of having a library of CUDA kernels implemented in Soil Monitor, which can be reused to easily calculate a new metric.
+Indeed, the procedure till the sort of patches by size can be used to calculate the surface of the largest urban patch ($S_{max}$), which is used to quantify the largest class patch index (Table \ref{tab:SMappToolbox}, ID=8).
 
 %\toberevised{
 %even though the MRPS equation (write here equation) is very simple, this is not true for the implementation.
@@ -616,8 +615,8 @@ However, it shows the advantage of having a library of CUDA kernel implemented i
 
 \begin{figure}[t] % FIGURE 03
     % \includegraphics[width,,height=15pc,draft]
-    \centerline{\includegraphics[width=500pt]{daMileti/03_DUF_explanation.pdf}}
-    \caption{ The calculation of the discontinuous urban fabric surface ($S_{DUF}$) developed within Soil Monitor cyberinfrastructure. 
+    \centerline{\includegraphics[width=500pt]{03_DUF_explanation.pdf}}
+    \caption{ The calculation of the discontinuous urban fabric surface ($S_{DUF}$) developed within Soil Monitor cyber-infrastructure. 
     The pixel-based calculations are perfomed on the GPU card running a connected component labelling algorithm written in CUDA-C. 
     The patch-based calculations are performed on the CPU by Java code.
     The elapsed times in the box of CUDA kernels refer to an image of size $180 \times 10^6$ pixels using a NVIDIA TESLA C2075 GPU card.
@@ -649,15 +648,15 @@ The type and evolution of vegetation cover can be a powerful indicator of the ma
 %}
 % WHAT ARE LU and LC:
 %Land use/cover is two separate terminologies which are often used interchangeably (Dimyati et al., 1996). Land cover refers to the physical characteristics of earth’s surface, captured in the distribution of vegetation, water, soil and other physical features of the land, including those created solely by human activities e.g., settlements. While land-use refers to the way in which land has been used by humans and their habitat, usually with accent on the functional role of land for economic activities. 
-Although land cover reflects the physical characteristics of earth's surface and differently land use refers to the way in which land has been used by humans, it is not possible to keep them separated in the analysis.
+Although land cover reflects the physical characteristics of earth's surface and differently land use refers to the way in which land has been used by humans, it is not possible to keep them separated in the following analysis.
 
 % OLD BLOCK: MONITORING IN ITALY
 %\update{[OLD BLOCK]}
 In Italy, the monitoring of land take is accounted for by the National System for the Protection of the Environment (SNPA) as established by the entry into force of law 132/2016.
-Accordingly, the SNPA is coordinated by ISPRA and involves all Italian Environmental Protection Agencies (ARPA-APPA) working at the regional level. 
+Accordingly, the SNPA is coordinated by ISPRA and involves all Italian Environmental Protection Agencies working at the regional level. 
 This monitoring is scheduled in order to have an annually updated picture of the soil sealing evolution (e.g. ISPRA 2016, 2018) and the dynamics of land transformation and urban development, which is done through the production of thematic maps and the development of specific indicators. 
 Law 132/2016 states that the SNPA must ensure such monitoring through monitoring points/networks or earth observation techniques (e.g. Copernicus).
-In performing such monitoring, ISPRA and SNPA face two major problems: (i) difficult interaction with over 8000 Italian municipalities and (ii) the lack of awareness about the impact of the soil sealing on land degradation by citizens and other public authorities.
+In performing such monitoring, ISPRA and SNPA face two major problems: (i) difficult interaction with over 8000 Italian municipalities and (ii) the lack of awareness by citizens and other public authorities about the impact of soil sealing on land degradation.
 
 % COMMENTS ON NUMERICAL RESULTS IN ITALY:
 %During the last 30 years the total livestock number increased from 4,709 thousand (1970) to 7,792 thousand (1996) and 17 million heads (2005), at the same time population increased more than 2.5 times. Consequently, the anthropogenic pressure on these areas has increased.
@@ -669,9 +668,11 @@ In this framework, Soil Monitor can indeed represent an important step forward i
 %\update{[FROM FABIO]}
 %RoI = Italy
 %Dates = 50's vs 2012
-To show the results in Figure \ref{fig:caseIT}, the calculation of the matrix of land use/cover change was submitted to the platform using the whole Italy as RoI and the two contrasting yeas 1954 and 2012 as time filters.
+To show the results in Figure \ref{fig:caseIT}, the calculation of the matrix of land use/cover change was submitted to the platform using the whole Italy as RoI,
+Touring and CLC as basic data and
+the two contrasting yeas 1954 and 2012 as time filters.
 The system produced an interactive change matrix with the land use changes between 13 different classes for the entire country.
-From these data (see Figure \ref{fig:caseIT}\textit{a} and \textit{b}) it is very interesting to emphasise that the land use class mostly affected by new \textit{artificial surfaces} is the \textit{complex cultivation patterns} with a loss of 418,604 ha, that is the 26.72\% of transformation into \textit{artificial surfaces} was possible due to the consumption of \textit{complex cultivation patterns} in whole Italy from 50's to 2012.
+From these data (see Figure \ref{fig:caseIT}\textit{a} and \textit{b}) it is very interesting to emphasise that the land use class mostly affected by new \textit{artificial surfaces} is the \textit{complex cultivation patterns} with a loss of 418,604 ha, that is the 26.72\% of transformation into \textit{artificial surfaces} in whole Italy from 50's to 2012 was possible due to the consumption of \textit{complex cultivation patterns}.
 Since the matrix of changes generated by Soil Monitor is interactive, the click on the column of artificial surfaces produced either a pie chart (not shown) enabling an immediate and intuitive quantification of the changes by classes contributing to \textit{artificial surfaces} or an image map where it is possible to see where these changes have occurred (see the zoom of such a map in Figure \ref{fig:caseIT}\textit{c}).
 %In this specific case it is possible to observe that t
 It is possible to observe that the largest changes from \textit{complex cultivation patterns} to \textit{artificial surfaces} occurred at the fringes of earlier urban centres.
@@ -680,18 +681,19 @@ It is possible to observe that the largest changes from \textit{complex cultivat
 %{\setlength\intextsep{0pt}
 \begin{figure}[t] % FIGURE 04
     % \includegraphics[width,,height=15pc,draft]
-    \centerline{\includegraphics[width=450pt]{daMileti/04_caso_nazionale.pdf}}
+    \centerline{\includegraphics[width=450pt]{04_caso_nazionale.pdf}}
     \caption{ The interactive change matrix calculation for whole Italy between 1954 and 2012.
-    (a) The matrix of changes in hectares (ha) with particular focus on the column of \textit{artificial surfaces} (year 2012) with contributions coming from other classes.
+    %The changes in both the matrix and the map are depicted by colours, each of which is associated with the class in the reference year (1954) consumed by artificial surfaces in the current year (2012)
+    (a) The matrix of changes in hectares (ha) with particular focus on the column of \textit{artificial surfaces} (year 2012) with contributions coming from other classes (year 1954).
     (b) Same matrix of change as in (a) but expressed in percentage of the overall Italian area (except in parenthesis where percentages refer to the total of the class in header).
-    (c) \toberevised{\ldots put some text here!}
-    The changes in both the chart and the map are depicted by colours, each of which is associated with the class in the reference year (1954) consumed by artificial surfaces in the current year (2012) } \label{fig:caseIT}
+    (c) Map of \textit{artificial surfaces} (year 2012) with contributions coming from other classes (year 1954).
+    } \label{fig:caseIT}
 \end{figure}
 
 \textit{Forests} covers one third (33.66\%) of the Italian area on 2012 and is one of the most conservative classes with respect to land take, since it only contributed by 4.41\% to the overall transformation into \textit{artificial surfaces} (the 0.23\% of total area).
 %On the contrary the \textit{complex cultivation patterns} is the land use category mostly affected by new land take.
 Considering the above evidences along with the analysis of other land use classes, as a concluding remark the classes characterised by a lower level of specialization are the most fragile with respect to new land take.
-\textit{Complex cultivation patters} and \textit{non-irrigated arable land} have suffered a tremendous general trade off with different other classes, because only about a quarter and half of their surfaces remained unchanged between 1954 and 2012, respectively.
+\textit{Complex cultivation patters} and \textit{non-irrigated arable land} have suffered a tremendous general trade off with different other classes, because only about a quarter and half of their surfaces, respectively, remained unchanged between 1954 and 2012.
 It quantifies the great impact of man pressure in solely 60 years, considering that \textit{complex cultivation patters} and \textit{non-irrigated arable land} together cover about the 42\% of the Italian territory.
 On the contrary instead, classes such as \textit{vineyards}, \textit{olive groves} and \textit{fruit trees and berry plantations} are better defending, in particular against the land take aggression.
 Therefore, higher specialization in agriculture would perhaps produce more resilient land use/cover classes to challenge new land take pressures.
@@ -703,8 +705,8 @@ Those regions, such as Lombardia and Veneto, experiencing a large land take (abo
 On the contrary, regions affected by weak land take dynamics, such as Molise, Valle D'Aosta and Liguria show a better preservation of the \textit{complex cultivation patterns} class.% \toberevised{[WHY THIS CLASS IS SO IMPORTANT, THAT WE HAVE TO PRESERVE?]}
 
 \begin{figure}
-    \centerline{ \includegraphics[width=450pt]{daMileti/05_caso_nazionale_grafici.pdf} }
-    \caption{Breakdown of changes by region assuming the regional area as total within each region.
+    \centerline{ \includegraphics[width=450pt]{05_caso_nazionale_grafici.pdf} }
+    \caption{Breakdown of changes between 1954 and 2012 by region assuming the regional area as total within each region.
              (a) Impact of regional changes on \textit{artificial surfaces}, \textit{forests} and \textit{complex cultivation patterns}.
              (b) Regional changes in the trade off between \textit{forests} and \textit{complex cultivation patterns} with \textit{artificial surfaces}.}
     \label{fig:caseIT_graphs}
@@ -731,31 +733,31 @@ Moreover, typically, this is performed through the ''territorial plan of coordin
 
 In the last decades, there have been many regional laws and provincial policies in Italy, highlighting the need to mitigate land take, thus guaranteeing the preservation of the landscape and its ecosystem services. 
 In such a framework, the crucial need to support the PTCP planning in order to truly mitigate soil sealing is evident. 
-This is by far the most government level under the pressures of pro-growth policies, which are instead strongly grounded in the city and town leading coalitions.
+This government level is not under the major pressure of pro-growth policies, which are instead strongly grounded in the city and town leading coalitions.
 Therefore, Soil Monitor can help implement these regulative ambitions.
-For each Italian province, the platform allows carrying out a detailed analysis of both recent and past urbanization with the production of indices and maps identifying the main soil sealing criticalities within the territory.
+For each Italian province, the platform allows carrying out a detailed analysis of both recent and past urbanization with the production of metrics and maps identifying the main soil sealing criticalities within the territory.
 Moreover, Soil Monitor classifies administrative units on the base of urban sprawl, giving the opportunity to the governing body to define targeted and selected geographies of the densification policy.
 
 %A case of use of the platform at the provincial level is reported in Figure \ref{fig:casePROV}, which shows a plot of three indicators, namely LCDI, RMPS, and ED (presented in Table \ref{tab:IMPclasses}), describing the model of urban development of the five provincial capitals in Campania Region: Avellino, Benevento, Caserta, Napoli, and Salerno (Figure \ref{fig:casePROV}a). 
 %The combination of the results of the three indicators helps in evaluating the degree of urban dispersion and, for instance, enables differentiating monocentric from polycentric municipalities. 
 %As such, Caserta, Napoli, and Salerno --- having a LCPI larger than 70\% --- are monocentric and compacted, while Avellino and Benevento have a clearly polycentric distribution.
-
-\begin{figure}[t] % FIGURE 05
-    % \includegraphics[width,,height=15pc,draft]
-    \centerline{\includegraphics[width=250pt]{daMileti/06_caso_provinciale.pdf}}
-    \caption{ Soil Monitor supports the analysis at the level of the territorial plan of coordination (PTCP). } \label{fig:casePROV}
-\end{figure}
-
 In Figure \ref{fig:casePROV} a quantitative map of the rural fragmentation is given for the Milano province, an area very dynamic with a high per capita income and high residential and infrastructure pressure. 
 This map is very important because it enables the quantification of each point in the landscape to the degree of its rural integrity. 
-Accordingly, calculations are performed on-the-fly, enabling planners to freely decide the radius of their analysis (size of kernel to be processed).
+Accordingly, calculations are performed on-the-fly, enabling planners to freely decide the radius of their analysis.
 Generally, a smaller radius (e.g. 100 m) is useful for detailed urban planning at the scale of a specific intervention, such as a new green corridor or a new development.
 By contrast, a fragmentation analysis performed with a large radius (e.g. >500 m) produces an output affected by very large areas, either urban or natural. 
 Thus, this analysis is useful to describe major geographical trends of rural integrity.
 The output from the above analysis can be profitably used to better plan future urban development, thus avoiding new fragmentation of rural areas, especially those with high integrity, and to plan where to place new green infrastructures connecting rural areas with high rural integrity.
 
+\begin{figure}[t] % FIGURE 05
+    % \includegraphics[width,,height=15pc,draft]
+    \centerline{\includegraphics[width=450pt]{06_caso_provinciale.pdf}}
+    \caption{ Map of rural fragmentation calculated in the province of Milan on 2012. } \label{fig:casePROV}
+\end{figure}
+
+
 %\subsubsection{The case study of municipal plan (PUC)}
-\subsubsection{ \toberevised{Planning at the municipal level (PUC)} }
+\subsubsection{ Planning at the municipal level (PUC) }
 \label{sec:caseCOM}
 %\toberevised{[FROM PTCP | as reference for text development]
 %A case of use of the platform at the provincial level is reported in Figure \ref{fig:casePROV}, which shows a plot of three indicators, namely LCDI, RMPS, and ED (presented in Table \ref{tab:IMPclasses}), describing the model of urban development of the five provincial capitals in Campania Region: Avellino, Benevento, Caserta, Napoli, and Salerno (Figure \ref{fig:casePROV}a). 
@@ -775,37 +777,44 @@ The study of quantification and analysis of land take dynamics at municipality l
 The statistics on \textit{Largest Class Patch Index} (LCPI) , \textit{Residual Mean Patch Surface} (RMPS) and \textit{Edge Density} (ED) metrics highlight a very large variation between the municipalities (Figure \ref{fig:caseCOM_urbDev}a).
 More specifically, Casavatore shows a strong monocentric urban development with the highest LCPI value (LCPI: 99.98), while Monte di Procida has the most pronounced
 polycentric nature with many small urban nuclei (RMPS: 1.18).
-An analysis on edge density --- which is a good proxy of urban dispersion (e.g. \citealp{SCHWARZ2010}) --- shows that rural mountain settlement of Agerola has the highest urban dispersion (ED: 1174) while the almost fully urbanized area of Casavatore shows the lowest urban dispersion trend (ED: 74).
-Therefore, it is evident that these data requires further integration with other indexes such as \% urbanized area and population.
-In Figure \ref{fig:caseCOM_urbDev}b we report a diagram quantifying ED for the municipalities of the province of Napoli.
-There are over 22 municipalities with a very high (>600) edge density and many of them refer to summer-based touristic sites in hilly and mountain sites (Agerola, Serra Fontana, Annacapri, Massalubrense, Vico Equense, Barano d’Ischia, Capri, Forio, Piano di Sorrento, etc.).
+An analysis on edge density --- which is a good proxy of urban dispersion (e.g. \citealp{SCHWARZ2010}) --- shows that the rural mountain settlement of Agerola has the highest urban dispersion (ED: 1174) while the almost fully urbanized area of Casavatore shows the lowest urban dispersion trend (ED: 74).
+Therefore, it is evident that these data requires further integration with other indexes such as the fraction of urbanized area and the population.
+In Figure \ref{fig:caseCOM_urbDev}b we report a diagram quantifying ED for the municipalities of Napoli's province.
+There are over 22 municipalities with a very high (>600) edge density and many of them refer to summer-based touristic sites in hilly and mountain sites (Agerola, Serra Fontana, Annacapri, Massalubrense, Vico Equense, Barano d'Ischia, Capri, Forio, Piano di Sorrento, etc.).
 While the municipalities with the lower edge density (Casavatore, Arzano, Cardito, Melito di Napoli Portici) are not rural sites but rather strongly urbanized cities with very minimal and concentrated rural areas (thus low ED metric).
 
 \begin{figure}
     \centerline{
-        \includegraphics[width=450pt]{daMileti/08_caso_comunale_tabella_grafici.pdf}
+        \includegraphics[width=450pt]{08_caso_comunale_tabella_grafici.pdf}
     }
-    \caption{Caso comunale tabella e grafici}
+    \caption{Quantitative analysis of the urban development of all municipalities within the province on Napoli (year 2012).
+             (a) Summary statistics of metrics LCPI, RMPS and ED.
+             (b) Edge density bar plot.
+             (c) Bar plot of the ratio between edge density and population size.
+             (LCPI: Largest Class Patch Index; 
+             RMPS: Residual Mean Patch Surface; 
+             ED: Edge Density)
+            }
     \label{fig:caseCOM_urbDev}
 \end{figure}
 
 A more detailed analysis was then performed on the ratio between edge density and population size to highlight municipalities having a strong urban dispersion despite low population (Figure \ref{fig:caseCOM_urbDev}c).
-This analysis highlights that many small municipalities (e.g. Liveri, Comiziano, Carbonara di Nola,Casola di Napoli) --- well immerse in the rural environment and not having a touristic value --- show unexpected high ED/population values thus depicting a strong aggression of rural areas despite the very low population pressure.
+This analysis points out that many small municipalities (e.g. Liveri, Comiziano, Carbonara di Nola,Casola di Napoli) --- well immerse in the rural environment and not having a touristic value --- show unexpected high ED/population values thus depicting a strong aggression of rural areas despite the very low population pressure.
 From all analysis above it is evident the high explication value of the above indexes to better understand the urban development and, even more importantly, the impact of land take at municipality level.
 
 In addition to the analysis of the land take dynamics given above, an analysis to support urban planning at the municipality level using Soil Monitor is provided in the following (Figure \ref{fig:caseCOM_Ercolano}).
 The city of Ercolano is located between the Vesuvius volcano and the Tyrrhenian Sea, has a high population density, and is devoted to tourism owing to historical sites and spot of high-quality agriculture (e.g. wine, fruit trees, and flowers). 
 Therefore, the user can get a quantification of the evolutive trajectories that led to specific land use and land cover states. 
 In the example shown in Figure \ref{fig:caseCOM_Ercolano}(a, b), the amount and the geolocation of the consumption exerted by artificial surfaces is clear, above all, regarding vineyards, fruit trees, and olive orchards. 
-This interpretation about the LULC evolution is accompanied by the recognition that part of the land take was very close (if not inside) to the protected areas (Figure 7c) of the Vesuvius's slopes, thereby confirming the very high pressure of urbanization not well managed by local authorities. 
+This interpretation about the LULC evolution is accompanied by the recognition that part of the land take was very close (if not inside) to the protected areas (Figure \ref{fig:caseCOM_Ercolano}d) of the Vesuvius's slopes, thereby confirming the very high pressure of urbanization not well managed by local authorities. 
 Accordingly, the model of urban development was computed in the same municipality of Ercolano against other most populated cities in the Napoli province. 
-Figure \ref{fig:caseCOM_Ercolano}(d) shows the population size and density (the left side of the table) and the indicators of model of urban development (LCPI, RMPS, and ED on the right side of the table), depicting the main urban trends in the Napoli province.
-The results reported in Figure \ref{fig:caseCOM_Ercolano} are limited examples of the information that can possibly be achieved using Soil Monitor, which can be profitably used to enhance the definition and implementation of plans at the municipality scale (PUC in Italy).
+Figure \ref{fig:caseCOM_Ercolano}(c) shows the population size and density (the left side of the table) and the indicators of model of urban development (LCPI, RMPS, and ED on the right side of the table), depicting the main urban trends in the Napoli province.
+These results are limited examples of the awareness building that can be achieved using Soil Monitor, which in turn profitably supports the definition and implementation of plans at the municipality scale (PUC in Italy).
 This finding becomes much more important considering Soil Monitor is operational over the entire Italian territory with more than eight thousand municipalities.
 
 \begin{figure}[t] % FIGURE 06
     % \includegraphics[width,,height=15pc,draft]
-    \centerline{\includegraphics[width=450pt]{daMileti/07_caso_comunale.pdf}}
+    \centerline{\includegraphics[width=450pt]{07_caso_comunale.pdf}}
     \caption{ Soil Monitor supports the analysis at the level of the municipal urbanization plan (PUC) in Ercolano municipality.
               (a) Pie chart of the LULC changes in Ercolano towards artificial surfaces in 2012 from all other classes in 1954.
               (b) Image map of the changes in Ercolano depicted in (a).
@@ -820,33 +829,38 @@ This finding becomes much more important considering Soil Monitor is operational
 %Soil Monitor, by placing emphasis on landscapes, seeks to reduce the gap between policy and implementation being able to quantify and visualize (with the change in time of) the state of the land system.
 %\update{[from the Introduction]}
 Soil Monitor is designed to address the accountancy of soil sealing through different indicators providing operational support to urban planners, decision makers and multi stakeholders involved in landscape planning and interested in evaluating the impact of soil sealing. 
-This specific contribution required a different approach, the result of which is the Soil Monitor geospatial cyberinfrastructure. 
+This specific contribution required a different approach, the result of which is the Soil Monitor geospatial cyber-infrastructure. 
 A set of indicators can be calculated in real-time using either Italian administrative levels (NUTS2, NUTS3, and LAU2) or user-drawn Regions of Interest (RoI). 
 Moreover, Soil Monitor uses high resolution layers produced every year by ISPRA (Italian Institute for Environmental Protection and Research) since 2015 for drawing up their yearly soil sealing report in Italy. 
-Thus, owing to the high-performance computing embedded in its cyber infrastructure, Soil Monitor enables real-time geospatial processing while preserving a high spatial detail of the analysis over large areas (till LAU2); this combination of features has an intrinsic vast potential for being used in operational spatial planning as testified by the results presented in this work. 
+Thus, owing to the high-performance computing embedded in its cyber-infrastructure, Soil Monitor enables real-time geospatial processing while preserving a high spatial detail of the analysis over large areas (till LAU2, but it can scale according to available hardware).
+This combination of features has an intrinsic vast potential for being used in operational spatial planning as testified by the results presented in this work. 
 
 %\subsubsection{ \toberevised{Weakness points | remove paragraph title | moved from CONCLUSIONS} }
-Despite the huge endeavour spent on the logic tier to have GPU computing on board of Soil Sealing, the platform shows some important limitations caused by constraints in the data tier.
+Despite the huge endeavour spent on the logic tier to have GPU computing on board of Soil Monitor, the platform shows some important limitations caused by constraints in the data.
 % first limitation due to data tier:
-First, one main limitation is the lack of soil information underpinning the analysis in Soil Monitor, such as the lack of different qualities of soils and their spatial distribution in the scenario analysis.
+First, one main limitation is the lack of soil information underpinning the analysis, % in Soil Monitor, 
+such as the lack of different qualities of soils and their spatial distribution in the scenario analysis.
+But unfortunately there not exists a detailed and homogeneous soil map for whole Italy.
 To smoothly mitigate the fundamental shortcoming of not having soil information and to help discriminating between the different land qualities vulnerable to land take, Soil Monitor shows (via WMS protocol) soil grids at 250m spatial resolution produced by ISRIC.
-Attention should be drawn to the low accuracy of this grids with respect to the scale and detail of the land take analysis available in Soil Monitor.
+Attention should be drawn to the low accuracy of this grids with respect to the scale and the detail of the land take and soil sealing analysis available in Soil Monitor.
 %\toberevised{
 % second limitation due to data tier:
-Second, the base data (i.e. imperviousness layers by ISPRA) used in the analysis can have inconsistencies that Soil Monitor can highlight.
-Indeed, it is possible to get artefacts in the results given by a misclassification of features over time with impervious covers unrealistically fluctuating over time or by a non-classification of imperviousness mostly in less urbanized or rural areas with evident underestimation of the land degradation process.\\
-Soil Monitor provides basic \textit{what-if} modelling and scenario analysis building and it's authors belief that further effort should be performed to make the tools fully operational, mainly because of the need to provide real time answers.
+Second, the base data (i.e. imperviousness layers) used in the analysis can have inconsistencies that Soil Monitor highlights.
+It is possible to get artefacts in results %produced by Soil Monitor 
+because of possible issues in the production of the data (performed by ISPRA or Copernicus), artefacts that are not caused by Soil Monitor procedures. %that does not involve Soil Monitor.
+These issues can be caused by a misclassification of features over time with impervious covers unrealistically fluctuating over time (e.g. up and down from 0\% to 100\%) or by not detecting sealed surfaces mostly in less urbanized or rural areas.
+Even though some these artefacts leads to an evident underestimation of the land degradation process, they are sporadic.
+%Soil Monitor provides basic \textit{what-if} modelling and scenario analysis building and it's authors belief that further effort should be performed to make the tools fully operational, mainly because of the need to provide real time answers.
 %}
 
 %\subsubsection{ \toberevised{Strength points | remove paragraph title} }
-In the presentation of the JAVA/JCUDA/CUDA pipeline embedded in Soil Monitor (section \ref{sec:logicTier}) 
+In the presentation of the Java/JCUDA/CUDA pipeline embedded in Soil Monitor (section \ref{sec:logicTier}) 
 %It starts from MapStore that collects the user parameters, then GeoServer receive the parameters, prepare the inputs and recognize the exact set of processes to run. Subsequent to the Java layer (MapStore/Geoserver), the pipeline continues invoking the JCUDA layer in which the calculation of a metric is assembled.
 it was shown that the JCUDA layer performs calls to the CUDA kernels compiled in PTX files to address the calculation of a soil sealing metric.
-The proposed pipeline is an absolute technological novelty in the implementation of spatial decision support systems based on WebGIS and it enables the deploymeny of a fast geoprocessing engine capable to support a multi-user and multi-tasking web application.
-
+The proposed pipeline is an absolute technological novelty in the implementation of geospatial decision support systems based on WebGIS and it enables the deployment of a fast geoprocessing engine capable to support a multi-user and multi-tasking web application.
 To author knowledge, the
-integration of high performance computing by means of the CUDA framework within web based geospatial cyberinfrastructures is absolutely new.
-This is an important result that must be emphasized here not for the technological advancement itself, but because this technology is firstly applied to soil sealing and land degradation issues and because it changes the way in which different stakeholders (citizens, technicians, professionals, policy makers, etc.) can get informed about and measure soil sealing with agreed, certified and standard methods.
+integration of high performance computing by means of the CUDA framework within web based geospatial cyber-infrastructures is absolutely new.
+This is an important result that must be emphasized here not only for the technological advancement itself, but because this technology is firstly applied to soil sealing and land degradation issues and because it changes the way in which different stakeholders (citizens, technicians, professionals, policy makers, etc.) can get informed about and measure soil sealing with agreed, validated and standard methods.
 
 %\subsubsection{ \toberevised{Design | remove paragraph title} }
 %The Soil Monitor spatial decision support system and visualization tools required to embody some crucial design items. 
@@ -878,21 +892,44 @@ This is an important result that must be emphasized here not for the technologic
 
 
 \section{Conclusions}
-Soil sealing mitigation implemented through best practices in spatial land planning is a very virtuous goal, but \toberevised{it is also one of the greatest challenges of the modern world}. 
-In fact, high quantity of information can only be accessed through satellite and drones, \toberevised{etc. concerning, for example, the agricultural, forestry, environmental, and spatial planning sectors is simply not sufficient to face the complexity of this challenge}.
+% 1) summarize the main points of the manuscript
+% (a) SS is an important issue, (b) need tools to help urban planning
+Soil sealing is an important form of land degradation worldwide and its mitigation implemented through best practices in spatial land planning is a very virtuous goal.
+Undoubtedly, the high quantity of information that is increasingly accessible for instance through satellites and drones to tackle agricultural, forestry, environmental and spatial planning issues is simply not sufficient to face the complexity of soil sealing mitigation.
+%(iii) inter- and trans-disciplinary studies integrating soils in the environment are required to challenge soil sealing;
+%(iv) a cross-topic awareness should be raised regarding soil sealing in the policy, research, and public sectors.
+It is necessary to raise awareness in different sectors (policy, research and public) and to fund research and trans-disciplinary studies aiming to mitigate the phenomenon.
+% Therefore, authors stress on the current strong gap in developing and providing integrated operational tools dealing with soil sealing to support quantitative analysis, awareness building and decision making by stakeholders.
+Authors call attention to the current gap in the availability of factual tools that tackle soil sealing and enable quantitative analysis, awareness building and decision making. 
+%
+% 2) restate the thesis with different words
+%A viable solution to fill this gap fits with the general aim of our work, which deals with the development of a new type of geospatial decision support system --- a web-based decision support system, namely Soil Monitor --- developed on top of Geospatial Cyber-Infrastructures (GCI) and providing a multidisciplinary operational tool useful for a multi-stakeholder community to challenge soil sealing at different spatial scales.
+The objective of this work coped with the development of a new technological solution based on geospatial cyber-infrastructures to provide an operational tool capable to study, challenge and mitigate soil sealing at different planning and spatial scales.
+%
+% 3) make a final comment about the paper main idea
+We demonstrated that tools such as Soil Monitor --- which is freely accessible via an internet browser without the need to install any application or plugin on the local computer --- have significant potential to fill the current gap.
+The combination of WebGIS with GPU computing which runs on-the-fly geospatial processing puts Soil Monitor at the fringe of research and development. 
+This kind of technology demonstrated promising capability to quantitatively measure soil sealing and to give a contribution to mitigate the %continual 
+phenomenon worldwide, considering the high transferability of the proposed cyber-infrastructure.
+%
+% 4) emphasise an action that I'd like the reader to take
+Nevertheless, the proposed platform still remains a prototype from research that anyway can be used in whole Italy. 
+Subsequently, it can be seen as a democratic tool for creating reports that can catch the evolution of land use trajectories and connected land degradation interpretations about the ongoing of land degradation processes.
 
-\toberevised{This work shows that starting from the problem statement in a specific research domain, it is feasible to combine recent achievements in terms of data, models, indicators, WebGIS, and HPC technologies to produce an integrated geospatial cyberinfrastructure available on the web, aiming to account and mitigate the continual soil sealing phenomenon worldwide}. 
-The proposed application called Soil Monitor, which is freely accessible via an internet browser without the need to install any application or plugin on the local computer, aims to demonstrate that this approach is feasible, even though a more intuitive and easy to use dashboard is required.
-Moreover, it takes advantage of the combination of updated high spatial resolution data on imperviousness available in Italy owing to ISPRA with tailored codes written in CUDA to gain embarrassingly parallel applications, thereby enabling a highly detailed analysis over large geographical extents.
-Additionally, the combination of WebGIS with GPU computing running on-the-fly geospatial processing puts Soil Monitor at the fringe of research and development. 
-Further, the GPU parallelism model enables a higher speedup than the CPU counterpart, at both a lower cost and a lower power consumption, with the main limitation being the requirement to design and \toberevised{write new codes from scratch (EXPLAIN BETTER, IT WAS NOT CLEAR TO REVIEWER)}. Finally, one key added value of the dedicated high performance library shown here is the opportunity to use the very basic imperviousness layers coming from Copernicus and ISPRA as inputs for quantitative analysis.
+%In fact, high quantity of information can only be accessed through satellite and drones, \toberevised{etc. concerning, for example, the agricultural, forestry, environmental, and spatial planning sectors is simply not sufficient to face the complexity of this challenge}.
+%\toberevised{Indeed, this work shows that %starting from the problem statement in a specific research domain, 
+%it is feasible to combine recent achievements in terms of data, metrics, WebGIS and high performance computing technologies to build a geospatial cyberinfrastructure.
+%This kind of technology demonstrated promising capability to quantitatively measure soil sealing in order to give a contribution to mitigate continual phenomenon worldwide}. 
+%The proposed application called Soil Monitor, which is freely accessible via an internet browser without the need to install any application or plugin on the local computer, aims to demonstrate that this approach is feasible, even though a more intuitive and easy to use dashboard is required.
+%Moreover, it takes advantage of the combination of updated high spatial resolution data on imperviousness available in Italy owing to ISPRA with tailored codes written in CUDA to gain embarrassingly parallel applications, thereby enabling a highly detailed analysis over large geographical extents.
+%Further, the GPU parallelism model enables a higher speedup than the CPU counterpart, at both a lower cost and a lower power consumption, with the main limitation being the requirement to design and \toberevised{write new codes from scratch (EXPLAIN BETTER, IT WAS NOT CLEAR TO REVIEWER)}. Finally, one key added value of the dedicated high performance library shown here is the opportunity to use the very basic imperviousness layers coming from Copernicus and ISPRA as inputs for quantitative analysis.
 
 %\toberevised{
 %\ldots only if we invest on detailed soil mapping at Country scale, we can monitor and contrast the soil sealing\\
 %\ldots [!!!] we think that Country and also local administrative bodies should adopt such a technology to monitor and quantify to optimize planning procedures.\\
 %}
-Nevertheless, the proposed platform still remains a prototype from research that can be used for any area of the Italian territory. 
-Subsequently, it can be seen as a democratic tool for creating reports that can catch the evolution of land use trajectories and connected land degradation interpretations about the ongoing of these land degradation processes.
+%Nevertheless, the proposed platform still remains a prototype from research that can be used for any area of the Italian territory. 
+%Subsequently, it can be seen as a democratic tool for creating reports that can catch the evolution of land use trajectories and connected land degradation interpretations about the ongoing of these land degradation processes.
 
 %\toberevised{[DELETE::reviewer\#2, but try to reuse in discussion]}\\
 %\reviewer{
