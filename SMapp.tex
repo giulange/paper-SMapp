@@ -492,7 +492,7 @@ Two job submission examples are provided in the following sections highlighting 
 \subsubsection{Calculating the map of rural fragmentation}
 \label{sec:mmFragmentation}
 The fragmentation metric is computed on binary imperviousness layers with 20 m spatial resolution and Soil Monitor manages both rural and urban fragmentation.
-Fragmentation quantifies how much fragmented (or conversely, how much integrated) 
+Fragmentation quantifies how much fragmented % (or conversely, the degree of integrity) 
 a target pixel in the center of a moving window is (Table \ref{tab:SMappToolbox}, $ID = 10$).
 Besides other filters such as time and RoI, the job submission for fragmentation requires to configure the size of the moving window (e.g. 800 m) and the type of fragmentation (rural or urban).
 In the case of rural fragmentation, the target is a non-sealed pixel with value 0 (assumed to be not sealed at all or covered by impervious materials on a maximum of 30\% of the total pixel area) and all sealed pixels (with value 1) within the moving window are summed to calculate the $V_k$ of the fragmentation formula reported in Table \ref{tab:SMappToolbox}.
@@ -503,7 +503,9 @@ Indeed, even if selecting a small RoI, the relatively high calculation demand de
 \subsubsection{ Calculating the discontinuous urban fabric surface }
 \label{sec:mmDUF}
 The discontinuous urban fabric surface ($S_{DUF}$) is calculated by Soil Monitor in the backend and the user cannot directly manage it (no dedicated job submission). %, hence there is any job submission to get this directly this result.
-The calculation uses the National High-Resolution Soil Consumption dataset as input. It is a GIS raster storing zeros and ones that must be converted into urban patches with unique labels. This complex thematic transformation in addition to both the high resolution of input data and the requirement of real-time response of Soil Monitor cause that the implementation is absolutely challenging. % + requires (i) to perform real-time calculations using 
+The calculation uses the National High-Resolution Soil Consumption dataset as input. It is a GIS raster storing zeros and ones that must be converted into urban patches with unique labels.
+This complex thematic transformation in addition to both the high resolution of input data and the requirement of real-time responses of Soil Monitor make the implementation absolutely challenging.
+%cause that the implementation is absolutely challenging. 
 To address these requirements, a connected component labelling algorithm specifically developed for Soil Monitor was implemented in CUDA.
 Connected component labeling is a basic algorithm in image processing and an essential step in nearly every application dealing with object detection.
 It is made of eight CUDA kernels and about one thousand lines of code, thanks to which the algorithm groups together pixels belonging to the same connected component (e.g. object).
@@ -519,7 +521,7 @@ During the implementation of the
 %Soil Monitor 
 cyber-infrastructure we carried out a systematic testing procedure by means of web processing services as explained in section \ref{sec:logicTier}.
 The WPS inferface was used to test and validate the fast geoprocessing engine because we could run from hundreds to thousands times calculations without the tedious infilling of the accordion panes over the graphical user interface to submit more and more requests.
-POST requests are generally submitted from within the Unix terminal but for validation purpose they were submitted from within \mbox{MatLab\textregistered} scripts. %, which were specifically designed to validate the geoprocessing engine.
+POST requests are generally submitted from within the Unix terminal but for validation purpose they were submitted from within \mbox{MATLAB\textregistered} scripts. %, which were specifically designed to validate the geoprocessing engine.
 To validate each Soil Monitor model, we collected and compared the results returned by the following three independent computing environments:
 \begin{itemize}
     \item Running the stand-alone executable (EXE) compiled from the source CUDA-C code (Figure \ref{fig:GCI} logic tier).
@@ -530,7 +532,7 @@ To validate each Soil Monitor model, we collected and compared the results retur
     \item Running the WPS as explained above.
     It is based on the Java/JCUDA/CUDA chain which executes the CUDA kernels compiled in the PTX files. This computing environment is crucial to validate together the forward high performance computing step and the backward geoprocessing step embedded in the geospatial cyber-infrastructure of Soil Monitor (see section \ref{sec:logicTier} for the two steps). 
     
-    \item Running a \mbox{MatLab\textregistered} code which implements the same geospatial processing but with a different algorithm.
+    \item Running a \mbox{MATLAB\textregistered} code which implements the same geospatial processing but with a different algorithm.
 \end{itemize}
 
 The validation ends after a comparison of results coming from the three environments which enables to check for both speed performance and accuracy. 
@@ -611,7 +613,7 @@ Considering the above evidences along with the analysis of other land use classe
 It quantifies the great impact of human pressure in solely 60 years, considering that \textit{complex cultivation patters} and \textit{non-irrigated arable land} together cover about the 42\% of the Italian territory.
 On the contrary, classes such as \textit{vineyards}, \textit{olive groves} and \textit{fruit trees and berry plantations} are better defending, in particular against the land take aggression.
 Therefore, higher specialization in agriculture would perhaps produce more resilient land use/cover classes to challenge new land take pressures.
-Resiliency depends also on the fact that all of these classes concern permanent tree crops which are less flexible to transform into urban zones, due to technical financial, and economic reasons.
+Resiliency depends also on the fact that all of these classes concern permanent tree crops which are less flexible to transformation into urban zones, due to technical financial, and economic reasons.
 
 By means of the Soil Monitor platform, we analysed the changes between 1954 and 2012 in further detail
 for each separate Italian administrative region, with particular emphasis on quantifying changes in \textit{artificial surfaces}, \textit{forests} and \textit{complex cultivation patterns} (see Figure \ref{fig:caseIT_graphs}a).
